@@ -1,0 +1,24 @@
+{
+  "source_hf_space": "raymuz/googlesaada-v8-staging",
+  "source_hf_sha": "0dc4a8e27ed2849c701b2b10c1102fea64d72db0",
+  "production_hf_space": "raymuz/googlesaada",
+  "production_hf_sha": "e684a1f9ad82875ad6eaccb6bf7227b8867acd10",
+  "model_artifacts_on_hugging_face": [
+    "deployment_files/models/elo_only_safe_v2.joblib",
+    "deployment_files/models/ft_away_poisson_safe_v2.joblib",
+    "deployment_files/models/ft_home_poisson_safe_v2.joblib",
+    "deployment_files/models/ht_away_poisson_safe_v2.joblib",
+    "deployment_files/models/ht_home_poisson_safe_v2.joblib",
+    "deployment_files/models/logistic_regression_safe_v2.joblib",
+    "deployment_files/models/random_forest_safe_v2.joblib",
+    "deployment_files/models/sh_away_poisson_safe_v2.joblib",
+    "deployment_files/models/sh_home_poisson_safe_v2.joblib",
+    "deployment_files/models/xgboost_safe_v2.joblib",
+    "global_v3/v2g_staging/models/worldwide_btts.joblib",
+    "global_v3/v2g_staging/models/worldwide_match_result.joblib",
+    "global_v3/v2g_staging/models/worldwide_over_2_5.joblib"
+  ],
+  "git_sync_branch": "googlesaada-v8-upgrade",
+  "code_paths_synced": 117,
+  "note": "HF model binaries and persistent storage intentionally not committed to GitHub; GitHub workflows preserved."
+}

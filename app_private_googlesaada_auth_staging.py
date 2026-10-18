@@ -7,6 +7,7 @@ new ESPN fixtures; unresolved clubs remain unavailable.
 No GPT, training, published picks, or shared links.
 """
 from __future__ import annotations
+from backend import gs_v8_basket_ui as gs8_basket
 from pathlib import Path
 from datetime import datetime, timezone
 import importlib.util
@@ -464,6 +465,36 @@ def _gsi_execute_original(keys,text,profile,day,league,zone,token,markets):
 def gs_predict_complete(keys,text,profile,day,league,zone,token,markets,request:gr.Request=None):
     return _gsi_execute(keys,text,profile,day,league,zone,token,markets)
 
+# GOOGLESAADA_V8_LEGACY_QUICKBET_VERIFIED_STATUS_V2
+_gs_v8_original_quickbet_handler = gs_predict_complete
+def gs_predict_complete(*args, **kwargs):
+    legacy = _gs_v8_original_quickbet_handler(*args, **kwargs)
+    if not (isinstance(legacy,(tuple,list)) and len(legacy)==5):
+        return legacy
+    first=str(legacy[0] or '')
+    if not any(t in first.casefold() for t in
+       ('could not complete', 'no eligible verified', 'inference/fixture service')):
+        return legacy
+    keys=kwargs.get('keys',args[0] if args else None)
+    if not isinstance(keys,(list,tuple)) or not keys:
+        return legacy
+    try:
+        from backend.gs_v8_live_bridge import forecast as _gs_v8_forecast, PredictionAbstained as _gs_v8_abstain
+        notes=[]
+        for key in list(dict.fromkeys(keys))[:16]:
+            try:
+                result=_gs_v8_forecast(str(key))
+                output=result.get('model_outputs') if isinstance(result,dict) else None
+                notes.append(str(key)+(': V8 verified model output available in Free Live Predictions'
+                    if isinstance(output,dict) and output else ': V8 response has no verified model output'))
+            except _gs_v8_abstain as exc:
+                notes.append(str(key)+': V8 ABSTAIN — '+str(exc))
+        if notes:
+            return (first+'\nIndependent V8 check: '+'; '.join(notes),*legacy[1:])
+    except Exception:
+        return legacy
+    return legacy
+
 def gs_recommend_complete(profile,day,league,zone,token,request:gr.Request=None):
     uid,signed=_gsi_uid(token)
     remaining=_gsi_ledger.remaining(uid)
@@ -539,9 +570,7 @@ def gs_agent_complete(prompt,risk,day,league,zone,token,markets,request:gr.Reque
         return _gsi_execute([intent['fixture_key']],'',risk,scope_date,league,zone,signed,intent['markets'])
     if action=='predict_many':
         return _gsi_execute([], 'Predict '+str(intent['requested_count'])+' matches',risk,scope_date,league,zone,signed,intent['markets'])
-    return ('This Agent supports verified fixture browsing, scores and original-model predictions only. '
-             'Open-web research and full GPT conversation are not enabled in this release.',[],
-             'MANDATORY DISCLAIMER: '+_GSI_DISCLAIMER,signed,_gsi_quota(uid))
+    return (_gs_v8_gpt_fallback(raw),[], 'Conceptual GPT explanation; not verified sports data or model output. MANDATORY DISCLAIMER: '+_GSI_DISCLAIMER,signed,_gsi_quota(uid))
 
 def gs_explanation_notes_only(*args,**kwargs):
     return 'Detailed model reasoning is in the Match analysis notes. MANDATORY DISCLAIMER: '+_GSI_DISCLAIMER
@@ -582,6 +611,34 @@ GS_V2H_STEPS = '<div class="gs-steps" aria-label="How to use GoogleSaada">\n<div
 
 # GS_V8_GPT_ONLY_AGENT_UPGRADE_V1: chat text exclusively via OpenAI Responses API.
 # The 13 trained models, authenticated prediction routing and credit settlement are unchanged.
+
+# GOOGLESAADA_V8_STAGING_AGENT_VERIFIED_BRIDGE_V1
+def _gs_v8_gpt_fallback(user_question):
+    import os as _os, json as _json, urllib.request as _ur, urllib.error as _ue
+    key=_os.environ.get('OPENAI_API_KEY','').strip()
+    if not key:
+        return ('GPT is not configured on this Space. Add OPENAI_API_KEY to this staging Space secrets.')
+    model=_os.environ.get('GOOGLESAADA_OPENAI_MODEL','gpt-4.1-mini').strip()
+    payload={'model':model,'temperature':0.2,'max_tokens':500,
+      'messages':[
+        {'role':'system','content':('You are GoogleSaada football research assistant. Answer conceptual football questions clearly. '
+        'Never claim access to live fixtures, observed model predictions or verified results unless supplied by trusted app functions. '
+        'Do not invent probabilities or recommend betting guarantees. Explain that forecasts can abstain when data is insufficient.')},
+        {'role':'user','content':str(user_question)[:500]}]}
+    request=_ur.Request('https://api.openai.com/v1/chat/completions',
+         data=_json.dumps(payload).encode('utf-8'),
+         headers={'Authorization':'Bearer '+key,'Content-Type':'application/json'},method='POST')
+    try:
+        with _ur.urlopen(request,timeout=22) as reply:
+            value=_json.loads(reply.read(150000).decode('utf-8'))
+        answer=str(value['choices'][0]['message']['content']).strip()
+        return answer[:4000] if answer else 'GPT returned an empty reply.'
+    except _ue.HTTPError as exc:
+        # Never print request headers / secrets / raw provider error body.
+        return 'GPT provider request failed with HTTP '+str(exc.code)+'. Check Space billing, model access and secret.'
+    except (_ue.URLError,TimeoutError,KeyError,ValueError,IndexError,TypeError):
+        return 'GPT provider temporarily unavailable; retry later.'
+
 def gs_agent_complete(prompt,risk,day,league,zone,token,markets,request:gr.Request=None):
     from backend.google_saada_gpt_only_agent import respond as _gs_gpt_respond
     uid,signed=_gsi_uid(token)
@@ -632,51 +689,85 @@ def build_app():
             # 1. MOST IMPORTANT USER ACTION — ENTER / SELECT MATCHES
             # --------------------------------------------------------------
             with gr.Tab('⚽ Predict Matches'):
-                gr.Markdown('### Choose matches to analyze')
-                gr.Markdown('Enter matches or request up to **16 upcoming games** in everyday language.')
-                manual = gr.Textbox(label='Enter matches (optional)',lines=4,placeholder='Arsenal vs Chelsea\n\nOR: Find 10 upcoming matches')
-                count = gr.Markdown('**Maximum 16 per request · 20 free analyses per UTC day.** Predictions depend on verified history; unavailable fixtures will not be guessed.')
-                p_profile = gr.Radio(PROFILES,value='Balanced',label='Analysis preference')
-                gsi_p_markets = gr.CheckboxGroup(choices=list(_GSI_MARKETS),value=list(_GSI_MARKETS),label='Choose prediction types')
-                gr.Markdown('### Upcoming scheduled matches')
-                with gr.Row():
-                    p_quantity = gr.Dropdown(choices=list(range(1,17)),value=10,label='Number of matches (1–16)',scale=2)
-                    p_search = gr.Textbox(label='Search available games',placeholder='Search team or league',scale=4)
-                with gr.Accordion('Advanced Fixture Search',open=False):
-                    with gr.Row():
-                        p_day = gr.DateTime(label='Game date',value=day_value,include_time=False,type='string')
-                        p_league = gr.Dropdown([ALL_LEAGUES,*LEAGUES],value=ALL_LEAGUES,label='League')
-                        p_tz = gr.Dropdown(TZ_CHOICES,value='Africa/Douala',label='Your time zone')
-                    p_today = gr.Button('Today',size='sm')
-                p_select = gr.Dropdown(choices=[],multiselect=True,filterable=True,label='Select upcoming games',info='Selected from source-reported upcoming fixtures; maximum 16.')
-                with gr.Row():
-                    p_load = gr.Button('Refresh scheduled games',size='sm')
-                    p_all = gr.Button('Select requested games',size='sm')
-                    p_clear = gr.Button('Clear selection',size='sm')
-                p_status = gr.Markdown('Loading provider schedule.')
-                with gr.Accordion('View scheduled fixtures',open=False):
-                    p_schedule = gr.Dataframe(headers=['League','Kickoff','Home','Away','Status'],datatype=['str']*5,interactive=False,value=[])
-                p_go = gr.Button('Analyze Selected Matches',variant='primary',size='lg')
-                p_msg = gr.Markdown()
-                p_result = gr.Dataframe(headers=_GSI_HEADERS,datatype=['str']*13,interactive=False,value=[],label='Match-by-match probabilities (where verified)',wrap=True)
-                p_notes = gr.Textbox(label='Match analysis notes',lines=3,interactive=False)
-                p_gpt = gr.Button('Explain with GoogleSaada Agent',size='sm')
-                p_gpt_out = gr.Markdown('Optional explanation. Predictions come from actual model outputs.')
-                p_rows = gr.State([])
-                manual.change(input_status,inputs=manual,outputs=count)
-                p_load.click(gs_ui_reload,inputs=[p_day,p_league,p_tz,p_search,p_quantity],outputs=[p_select,p_status,p_schedule,p_rows])
-                for control in (p_day,p_league,p_tz):
-                    control.change(gs_ui_reload,inputs=[p_day,p_league,p_tz,p_search,p_quantity],outputs=[p_select,p_status,p_schedule,p_rows])
-                p_search.change(gs_ui_select,inputs=[p_rows,p_tz,p_search,p_quantity],outputs=[p_select,p_schedule])
-                p_quantity.change(gs_ui_select,inputs=[p_rows,p_tz,p_search,p_quantity],outputs=[p_select,p_schedule])
-                p_today.click(old.today_for,inputs=p_tz,outputs=p_day)
-                p_all.click(gs_ui_select,inputs=[p_rows,p_tz,p_search,p_quantity],outputs=[p_select,p_schedule])
-                p_clear.click(clear_match_choices,outputs=p_select)
-                p_select.change(gs_ui_cap,inputs=[p_select,p_quantity],outputs=p_select)
-                p_go.click(gs_predict_complete,inputs=[p_select,manual,p_profile,p_day,p_league,p_tz,gsi_token,gsi_p_markets],outputs=[p_msg,p_result,p_notes,gsi_token,gsi_quota])
-                manual.submit(gs_predict_complete,inputs=[p_select,manual,p_profile,p_day,p_league,p_tz,gsi_token,gsi_p_markets],outputs=[p_msg,p_result,p_notes,gsi_token,gsi_quota])
-                p_gpt.click(gs_explanation_notes_only,inputs=[p_select,manual,p_profile,p_day,p_league,p_tz],outputs=p_gpt_out)
+                with gr.Tabs():
+                    with gr.Tab("Quick Bet"):
 
+                        gr.Markdown('### Choose matches to analyze')
+                        gr.Markdown('Enter matches or request up to **16 upcoming games** in everyday language.')
+                        manual = gr.Textbox(label='Enter matches (optional)',lines=4,placeholder='Arsenal vs Chelsea\n\nOR: Find 10 upcoming matches')
+                        count = gr.Markdown('**Maximum 16 per request · 20 free analyses per UTC day.** Predictions depend on verified history; unavailable fixtures will not be guessed.')
+                        p_profile = gr.Radio(PROFILES,value='Balanced',label='Analysis preference')
+                        gsi_p_markets = gr.CheckboxGroup(choices=list(_GSI_MARKETS),value=list(_GSI_MARKETS),label='Choose prediction types')
+                        gr.Markdown('### Upcoming scheduled matches')
+                        with gr.Row():
+                            p_quantity = gr.Dropdown(choices=list(range(1,17)),value=10,label='Number of matches (1–16)',scale=2)
+                            p_search = gr.Textbox(label='Search available games',placeholder='Search team or league',scale=4)
+                        with gr.Accordion('Advanced Fixture Search',open=False):
+                            with gr.Row():
+                                p_day = gr.DateTime(label='Game date',value=day_value,include_time=False,type='string')
+                                p_league = gr.Dropdown([ALL_LEAGUES,*LEAGUES],value=ALL_LEAGUES,label='League')
+                                p_tz = gr.Dropdown(TZ_CHOICES,value='Africa/Douala',label='Your time zone')
+                            p_today = gr.Button('Today',size='sm')
+                        p_select = gr.Dropdown(choices=[],multiselect=True,filterable=True,label='Select upcoming games',info='Selected from source-reported upcoming fixtures; maximum 16.')
+                        with gr.Row():
+                            p_load = gr.Button('Refresh scheduled games',size='sm')
+                            p_all = gr.Button('Select requested games',size='sm')
+                            p_clear = gr.Button('Clear selection',size='sm')
+                        p_status = gr.Markdown('Loading provider schedule.')
+                        with gr.Accordion('View scheduled fixtures',open=False):
+                            p_schedule = gr.Dataframe(headers=['League','Kickoff','Home','Away','Status'],datatype=['str']*5,interactive=False,value=[])
+                        p_go = gr.Button('Analyze Selected Matches',variant='primary',size='lg')
+                        p_msg = gr.Markdown()
+                        p_result = gr.Dataframe(headers=_GSI_HEADERS,datatype=['str']*13,interactive=False,value=[],label='Match-by-match probabilities (where verified)',wrap=True)
+                        p_notes = gr.Textbox(label='Match analysis notes',lines=3,interactive=False)
+                        p_gpt = gr.Button('Explain with GoogleSaada Agent',size='sm')
+                        p_gpt_out = gr.Markdown('Optional explanation. Predictions come from actual model outputs.')
+                        p_rows = gr.State([])
+                        manual.change(input_status,inputs=manual,outputs=count)
+                        p_load.click(gs_ui_reload,inputs=[p_day,p_league,p_tz,p_search,p_quantity],outputs=[p_select,p_status,p_schedule,p_rows])
+                        for control in (p_day,p_league,p_tz):
+                            control.change(gs_ui_reload,inputs=[p_day,p_league,p_tz,p_search,p_quantity],outputs=[p_select,p_status,p_schedule,p_rows])
+                        p_search.change(gs_ui_select,inputs=[p_rows,p_tz,p_search,p_quantity],outputs=[p_select,p_schedule])
+                        p_quantity.change(gs_ui_select,inputs=[p_rows,p_tz,p_search,p_quantity],outputs=[p_select,p_schedule])
+                        p_today.click(old.today_for,inputs=p_tz,outputs=p_day)
+                        p_all.click(gs_ui_select,inputs=[p_rows,p_tz,p_search,p_quantity],outputs=[p_select,p_schedule])
+                        p_clear.click(clear_match_choices,outputs=p_select)
+                        p_select.change(gs_ui_cap,inputs=[p_select,p_quantity],outputs=p_select)
+                        p_go.click(gs_predict_complete,inputs=[p_select,manual,p_profile,p_day,p_league,p_tz,gsi_token,gsi_p_markets],outputs=[p_msg,p_result,p_notes,gsi_token,gsi_quota])
+                        manual.submit(gs_predict_complete,inputs=[p_select,manual,p_profile,p_day,p_league,p_tz,gsi_token,gsi_p_markets],outputs=[p_msg,p_result,p_notes,gsi_token,gsi_quota])
+                        p_gpt.click(gs_explanation_notes_only,inputs=[p_select,manual,p_profile,p_day,p_league,p_tz],outputs=p_gpt_out)
+
+            
+
+                    with gr.Tab('Fixtures'):
+                        gr.Markdown('### Verified upcoming fixtures · select matches for your basket')
+                        gs8_basket_state = gr.State([])
+                        gs8_fixture_list = gr.Dropdown(choices=[], label='Upcoming verified fixtures', interactive=True)
+                        gs8_load = gr.Button('Refresh Fixtures')
+                        gs8_add = gr.Button('Add to Bet Basket', variant='primary')
+                        gs8_notice = gr.Markdown('Load fixtures, select a match, then add it to My Bet Basket.')
+                        gs8_basket_counter = gr.Markdown('**My Bet Basket: 0/16**')
+                        gs8_load.click(gs8_basket.load, inputs=[], outputs=[gs8_fixture_list, gs8_notice])
+                        gs8_add.click(gs8_basket.add, inputs=[gs8_fixture_list, gs8_basket_state],
+                                      outputs=[gs8_basket_state, gs8_basket_counter, gs8_notice])
+                    with gr.Tab('My Bet Basket'):
+                        gr.Markdown('### Your selected matches · up to 16')
+                        gs8_basket_view = gr.JSON(label='My Bet Basket')
+                        gs8_remove_choice = gr.Dropdown(choices=[],label='Match to remove',interactive=True)
+                        gs8_show = gr.Button('Show My Bet Basket')
+                        gs8_remove = gr.Button('Remove from Bet Basket')
+                        gs8_clear = gr.Button('Clear Basket')
+                        gs8_analyze = gr.Button('Analyze My Basket',variant='primary')
+                        gs8_basket_result = gr.JSON(label='Actual model predictions / abstentions')
+                        gs8_basket_note = gr.Markdown()
+                        gs8_show.click(gs8_basket.display,inputs=[gs8_basket_state],
+                                       outputs=[gs8_basket_view,gs8_remove_choice,gs8_basket_note])
+                        gs8_remove.click(gs8_basket.remove,inputs=[gs8_remove_choice,gs8_basket_state],
+                                         outputs=[gs8_basket_state,gs8_basket_view,gs8_remove_choice,gs8_basket_counter,gs8_basket_note])
+                        gs8_clear.click(gs8_basket.clear,inputs=[],
+                                        outputs=[gs8_basket_state,gs8_basket_view,gs8_remove_choice,gs8_basket_counter,gs8_basket_note])
+                        gs8_analyze.click(gs8_basket.analyze,inputs=[gs8_basket_state],
+                                          outputs=[gs8_basket_result,gs8_basket_note])
             with gr.Tab('🎯 Recommendations'):
                 gr.Markdown('### Explore matches by your preferred risk level')
                 with gr.Row():

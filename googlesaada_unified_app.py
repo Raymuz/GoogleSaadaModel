@@ -44,6 +44,8 @@ def _create_blocks():
     blocks=captured[0]
     if not hasattr(blocks,'config') and not hasattr(blocks,'get_config_file'):
         raise RuntimeError('Captured Gradio app lacks config')
+    from backend.gs_v8_free_public import add_ui as _gs_free_ui
+    _gs_free_ui(blocks, gr)
     return blocks
 
 api=FastAPI(title='GoogleSaada V8',docs_url=None,redoc_url=None,openapi_url=None)
@@ -142,5 +144,72 @@ async def gs_v8_internal_verified_predict(request: Request):
         )
 # END GOOGLESAADA V8 VERIFIED PRIVATE PREDICTION
 
+
+
+# BEGIN GS V8 LIVE PROVIDER ROUTES
+from fastapi import Request as _GSRequest
+from backend.gs_v8_live_bridge import (
+    authorized as _gs_authorized,
+    start_refresh as _gs_start_refresh,
+    fixtures_summary as _gs_fixtures_summary,
+    forecast as _gs_forecast,
+    PredictionAbstained as _GSAbstained,
+)
+
+@api.on_event("startup")
+def _gs_live_startup():
+    _gs_start_refresh()
+
+@api.get("/api/v1/internal/live-fixtures")
+def _gs_live_fixtures(request: _GSRequest):
+    key = request.headers.get("x-googlesaada-internal-key", "")
+    if not _gs_authorized(key):
+        return JSONResponse(
+            status_code=403,
+            content={"error": "Protected staging endpoint"}
+        )
+    try:
+        return _gs_fixtures_summary()
+    except _GSAbstained as exc:
+        return JSONResponse(
+            status_code=422,
+            content={"status": "ABSTAIN", "reason": str(exc)}
+        )
+    except Exception:
+        return JSONResponse(
+            status_code=503,
+            content={"error": "Live fixture service unavailable"}
+        )
+
+@api.post("/api/v1/internal/live-forecast")
+async def _gs_live_forecast(request: _GSRequest):
+    key = request.headers.get("x-googlesaada-internal-key", "")
+    if not _gs_authorized(key):
+        return JSONResponse(
+            status_code=403,
+            content={"error": "Protected staging endpoint"}
+        )
+    try:
+        body = await request.json()
+        if not isinstance(body, dict):
+            raise _GSAbstained("Invalid prediction request")
+
+        result = _gs_forecast(body.get("fixture_key"))
+        return JSONResponse(status_code=200, content=result)
+
+    except _GSAbstained as exc:
+        return JSONResponse(
+            status_code=422,
+            content={"status": "ABSTAIN", "reason": str(exc)}
+        )
+    except Exception:
+        return JSONResponse(
+            status_code=503,
+            content={"error": "Verified prediction unavailable"}
+        )
+# END GS V8 LIVE PROVIDER ROUTES
+
+from backend.gs_v8_free_public import install as _gs_install_free_public
+_gs_install_free_public(api)
 
 app=gr.mount_gradio_app(api,_create_blocks(),path='/')
