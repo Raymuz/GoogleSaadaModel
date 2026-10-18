@@ -1,0 +1,16 @@
+{
+  "portfolio": true,
+  "slug": "googlesaada",
+  "title": "GoogleSaada — Soccer AI & Analytics",
+  "description": "Soccer analytics and match prediction research platform featuring fixtures, model-based predictions, recommendations, live scores, and an AI agent. Production readiness of individual features is still being validated.",
+  "category": "Sports AI",
+  "tags": [
+    "Python",
+    "Machine Learning",
+    "Soccer Analytics",
+    "Predictions",
+    "AI Agents",
+    "Gradio"
+  ],
+  "hf_space": "raymuz/googlesaada"
+}
