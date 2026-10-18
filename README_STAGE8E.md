@@ -1,0 +1,11 @@
+# GoogleSaada free accounts staging (Stage 8E)
+- Native email/password (Argon2id), 18+ age input; Hugging Face OpenID Connect OAuth (verified email only). Accounts are free.
+- Postgres account and 10-per-UTC-day quota tables. Does NOT enable public predictions.
+- Requires private `DATABASE_URL` (Postgres); `GOOGLESAADA_SESSION_SECRET` (40+ random chars); `GOOGLESAADA_COOKIE_SECURE=true`; HF OAuth optional secrets (`HF_OAUTH_CLIENT_ID`, `HF_OAUTH_CLIENT_SECRET`, `GOOGLESAADA_OAUTH_REDIRECT_URI`).
+- Before first start, run a controlled one-off DB migration: `python -c "from googlesaada_account_service import db_engine,initialize; initialize(db_engine())"` against STAGING Postgres only.
+- Set Hugging Face OAuth registered redirect to `https://<your-staging-space>.hf.space/oauth/huggingface/callback` (actual staging hostname).
+- Launch: `uvicorn googlesaada_accounts_app:app --host 0.0.0.0 --port 7860`. Copy Dockerfile.v8.accounts to Dockerfile only in isolated staging after acceptance.
+- Password-reset/email-verification delivery, browser/OAuth end-to-end, staging Postgres atomic concurrency, abuse limits, CSRF, and model Judge/OOS acceptance are still REQUIRED before public account launch.
+- Do not interpret the presence of a quota table as an approved prediction product. Public prediction route is locked.
+- IMPORTANT: Account cookies are signed, 7-day max; production additionally needs revocable sessions, rate limits and email verification enforcement.
+- No WordPress. No payments. No GitHub/HF deployment performed.
