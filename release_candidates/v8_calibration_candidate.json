@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "method": "temperature_scaling",
+  "enabled": false,
+  "release_approved": false,
+  "models": {
+    "btts": {
+      "model_sha256": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15",
+      "temperature": 0.6051995932430545,
+      "test_rows": 25686,
+      "raw_log_loss": 0.6823915022646008,
+      "scaled_log_loss": 0.6809329403872346,
+      "raw_brier": 0.489616914256547,
+      "scaled_brier": 0.48845353584012924,
+      "activation_approved": false
+    },
+    "match_result": {
+      "model_sha256": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360",
+      "temperature": 0.9315214765136228,
+      "test_rows": 25686,
+      "raw_log_loss": 1.0157795326692745,
+      "scaled_log_loss": 1.0157518183908942,
+      "raw_brier": 0.6088138871160509,
+      "scaled_brier": 0.6088720642528507,
+      "activation_approved": false
+    },
+    "over_2_5": {
+      "model_sha256": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec",
+      "temperature": 0.7356839841993299,
+      "test_rows": 25686,
+      "raw_log_loss": 0.6734331452754729,
+      "scaled_log_loss": 0.672014022042542,
+      "raw_brier": 0.48066950780099116,
+      "scaled_brier": 0.47940001694240486,
+      "activation_approved": false
+    }
+  }
+}

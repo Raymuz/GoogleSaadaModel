@@ -65,4 +65,82 @@ def predict():
     return JSONResponse(status_code=503,content={'error':'REST predictions disabled until native Judge/calibration and access-control acceptance'})
 
 # One public port. Existing UI stays at / ; FastAPI routes above take precedence.
+
+# BEGIN GOOGLESAADA V8 VERIFIED PRIVATE PREDICTION
+from fastapi import Request
+import hmac as _gs_hmac
+import os as _gs_os
+
+@api.post("/api/v1/internal/verified-predict")
+async def gs_v8_internal_verified_predict(request: Request):
+    # Fail closed without a separately configured staging secret.
+    secret = _gs_os.environ.get(
+        "GOOGLESAADA_V8_INTERNAL_API_KEY", ""
+    )
+    supplied = request.headers.get(
+        "x-googlesaada-internal-key", ""
+    )
+
+    if (
+        not secret
+        or not supplied
+        or not _gs_hmac.compare_digest(secret, supplied)
+    ):
+        return JSONResponse(
+            status_code=403,
+            content={"error": "Protected staging endpoint"}
+        )
+
+    try:
+        from backend.gs_v8_verified_runtime import (
+            predict_verified, PredictionAbstained
+        )
+
+        body = await request.json()
+        if not isinstance(body, dict):
+            raise PredictionAbstained("Invalid request")
+
+        required = {
+            "home_team_id", "away_team_id", "kickoff_utc"
+        }
+
+        if not required.issubset(body):
+            raise PredictionAbstained(
+                "Missing verified fixture attributes"
+            )
+
+        # User-controlled historical_test is NEVER accepted.
+        # The service uses its own current evidence cutoff.
+        import pandas as _gs_pd
+        cutoff = _gs_pd.Timestamp.now(tz="UTC")
+
+        result = predict_verified(
+            home_team_id=body["home_team_id"],
+            away_team_id=body["away_team_id"],
+            kickoff_utc=body["kickoff_utc"],
+            evidence_cutoff_utc=cutoff,
+            historical_test=False
+        )
+
+        return JSONResponse(
+            status_code=200, content=result
+        )
+
+    except PredictionAbstained as exc:
+        return JSONResponse(
+            status_code=422,
+            content={
+                "status": "ABSTAIN",
+                "reason": str(exc)
+            }
+        )
+    except Exception:
+        # Do not reveal model paths, private data or stack traces.
+        return JSONResponse(
+            status_code=503,
+            content={"error": "Verified runtime unavailable"}
+        )
+# END GOOGLESAADA V8 VERIFIED PRIVATE PREDICTION
+
+
 app=gr.mount_gradio_app(api,_create_blocks(),path='/')
