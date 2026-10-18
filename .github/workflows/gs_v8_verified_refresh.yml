@@ -1,0 +1,55 @@
+name: GoogleSaada V8 Verified Refresh
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: googlesaada-v8-evidence-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout V8 source branch
+        uses: actions/checkout@v4
+        with:
+          ref: googlesaada-v8-upgrade
+          persist-credentials: false
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install verified refresh dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            "huggingface_hub>=0.27,<2" \
+            "pandas>=2.2,<3" \
+            "pyarrow>=17,<25" \
+            requests
+
+      - name: Run original provider and history gate
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GS_V8_STAGING_REVISION: "2e7e9848417b049a813b30ac19eabeb87e76c2cf"
+        run: |
+          python automation/gs_v8_verified_refresh.py
+
+      - name: Publish immutable run evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gs-v8-refresh-${{ github.run_id }}
+          path: v8_refresh_evidence/
+          if-no-files-found: warn
+          retention-days: 30
