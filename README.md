@@ -1,10 +1,11 @@
 ---
-title: Googlesaada V8 Staging
-emoji: ⚡
-colorFrom: green
-colorTo: yellow
+title: GoogleSaada V8
+emoji: ⚽
+colorFrom: orange
+colorTo: slate
 sdk: docker
-pinned: false
+app_port: 7860
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+# GoogleSaada V8
+Clean six-tab Flask-served UI and API. Preserve original serialized models. Configure OPENAI_API_KEY via Space Secrets. No fabricated predictions.
