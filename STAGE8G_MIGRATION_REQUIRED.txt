@@ -1,0 +1,4 @@
+Staging only: migrate TokenBase and LimitBase tables under an approved, reversible migration.
+Do not auto-create tables at production app startup.
+Before hosted test: set DATABASE_URL (separate staging), GOOGLESAADA_SESSION_SECRET, GS_RATE_LIMIT_SECRET, GS_SMTP_* and GOOGLESAADA_PUBLIC_BASE_URL; configure HF_OAUTH_CLIENT_ID, HF_OAUTH_CLIENT_SECRET, GOOGLESAADA_OAUTH_REDIRECT_URI, and GS_HF_OWNER_SUBJECT from verified HF subject.
+Rate-limit persistence is PostgreSQL-only. Public prediction requests remain disabled.

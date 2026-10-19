@@ -1,2 +1,10 @@
-# GoogleSaadaModel
-Model Code Repository 
+---
+title: Googlesaada V8 Staging
+emoji: ⚡
+colorFrom: green
+colorTo: yellow
+sdk: docker
+pinned: false
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference

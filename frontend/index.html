@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoogleSaada V8 - Production UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: '#f97316', // Orange-500 
+                        primaryHover: '#ea580c', // Orange-600
+                        accent: '#2563eb', // Blue-600
+                        slateDark: '#0f172a',
+                        slateCard: '#ffffff',
+                        slateBg: '#f8fafc'
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'inner-soft': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.02)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        
+        /* Smooth fade and slide animations */
+        .fade-in { animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Navigation Tabs */
+        .tab-btn { transition: all 0.2s ease; border-bottom: 2px solid transparent; font-weight: 500; }
+        .tab-btn.active { border-bottom-color: #f97316; color: #f97316; font-weight: 600; background-color: #fff7ed; }
+        .tab-btn:hover:not(.active) { background-color: #f1f5f9; color: #0f172a; }
+
+        .subtab-btn { transition: all 0.2s ease; border: 1px solid transparent; }
+        .subtab-btn.active { background-color: #fff7ed; color: #ea580c; border-color: #fdba74; font-weight: 600; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+        .subtab-btn:hover:not(.active) { background-color: #f8fafc; border-color: #e2e8f0; }
+        
+        .tab-content { display: none !important; }
+        .tab-content.active { display: block !important; animation: fadeIn 0.3s ease-in-out; }
+        .subtab-content { display: none !important; }
+        .subtab-content.active { display: block !important; animation: fadeIn 0.3s ease-in-out; }
+
+        .gs-input { @apply bg-slateBg border border-slate-300 text-slate-800 text-sm rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary block w-full p-2.5 transition-all; }
+        .gs-label { @apply block text-sm font-semibold text-slate-700 mb-1.5; }
+        .gs-card { @apply bg-slateCard p-6 rounded-xl shadow-soft border border-slate-200; }
+        
+        /* Tables */
+        .gs-table-container { @apply overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm; }
+        .gs-table { @apply w-full text-left text-sm whitespace-nowrap; }
+        .gs-table th { @apply px-5 py-3.5 bg-slate-50 text-slate-700 font-bold border-b border-slate-200 uppercase tracking-wider text-xs; }
+        .gs-table td { @apply px-5 py-4 border-b border-slate-100 text-slate-600 align-middle; }
+        .gs-table tr:last-child td { @apply border-b-0; }
+        .gs-table tr:hover td { @apply bg-slate-50/50; }
+        
+        /* Action Buttons */
+        .btn { @apply font-semibold rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-center transition-all focus:outline-none focus:ring-4; }
+        .btn-primary { @apply text-white bg-primary hover:bg-primaryHover focus:ring-orange-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5; }
+        .btn-secondary { @apply text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 hover:text-slate-900 focus:ring-slate-100 shadow-sm; }
+        .btn-danger { @apply text-red-600 bg-white border border-red-200 hover:bg-red-50 focus:ring-red-100; }
+
+        /* Custom Radio/Checkboxes */
+        .custom-radio input[type="radio"] { display: none; }
+        .custom-radio label { @apply border border-slate-200 rounded-lg px-4 py-2.5 text-sm cursor-pointer transition-all bg-white text-slate-600 flex items-center gap-2 hover:border-slate-300 hover:bg-slate-50 font-medium; }
+        .custom-radio input[type="radio"]:checked + label { @apply border-primary bg-orange-50 text-orange-800 ring-1 ring-primary shadow-sm; }
+        .custom-radio input[type="radio"]:checked + label::before { content: ''; width: 14px; height: 14px; border-radius: 50%; background: #f97316; border: 3px solid white; box-shadow: 0 0 0 1px #f97316; }
+        .custom-radio input[type="radio"]:not(:checked) + label::before { content: ''; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #cbd5e1; }
+
+        .custom-checkbox input[type="checkbox"] { display: none; }
+        .custom-checkbox label { @apply border border-slate-200 rounded-lg px-4 py-2.5 text-sm cursor-pointer transition-all bg-white text-slate-600 flex items-center gap-2 hover:border-slate-300 hover:bg-slate-50 font-medium; }
+        .custom-checkbox input[type="checkbox"]:checked + label { @apply border-primary bg-orange-50 text-orange-800 ring-1 ring-primary shadow-sm; }
+        .custom-checkbox input[type="checkbox"]:checked + label::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 10px; color: white; background: #f97316; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+        .custom-checkbox input[type="checkbox"]:not(:checked) + label::before { content: ''; width: 16px; height: 16px; border: 2px solid #cbd5e1; border-radius: 4px; background: white; }
+
+        .chat-bubble-user { @apply bg-orange-100 text-orange-900 rounded-2xl rounded-tr-sm px-5 py-3 max-w-[85%] self-end shadow-sm border border-orange-200; }
+        .chat-bubble-agent { @apply bg-white border border-slate-200 text-slate-800 rounded-2xl rounded-tl-sm px-5 py-4 max-w-[85%] self-start shadow-soft leading-relaxed; }
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="p-2 md:p-4 lg:p-6 bg-slateBg min-h-screen">
+
+    <div class="max-w-[1500px] mx-auto bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col h-[95vh]">
+        
+        <!-- Header -->
+        <header class="bg-slateDark text-white px-6 py-4 flex flex-col md:flex-row justify-between items-center shrink-0 border-b border-slate-800">
+            <div class="flex items-center gap-4">
+                <div class="bg-gradient-to-br from-primary to-primaryHover w-12 h-12 rounded-xl flex items-center justify-center shadow-lg border border-orange-400/30">
+                    <i class="fa-solid fa-futbol text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-extrabold tracking-tight text-white">GoogleSaada <span class="text-slate-400 font-medium text-lg ml-1">| Soccer Predictor</span></h1>
+                    <div class="text-sm font-medium text-orange-400 mt-0.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-check"></i> V8 Research Preview
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 md:mt-0 flex gap-3 text-sm">
+                <span class="bg-slate-800/80 px-4 py-2 rounded-lg border border-slate-700 text-slate-200 flex items-center gap-2 shadow-inner">
+                    <i class="fa-solid fa-coins text-yellow-500"></i> Quota: <strong class="text-white">20/20</strong>
+                </span>
+                <span class="bg-slate-800/80 px-4 py-2 rounded-lg border border-slate-700 text-slate-200 flex items-center gap-2 shadow-inner">
+                    <i class="fa-solid fa-server text-emerald-400"></i> Status: <strong class="text-white">Online</strong>
+                </span>
+            </div>
+        </header>
+
+        <nav class="flex overflow-x-auto bg-white border-b border-slate-200 px-4 pt-4 shrink-0 hide-scrollbar gap-2 shadow-sm relative z-10">
+            <button class="tab-btn active px-5 py-3 rounded-t-lg whitespace-nowrap" onclick="switchMainTab('tab-predict', this)">
+                <i class="fa-solid fa-futbol mr-2 text-slate-400"></i> ⚽ Predict Matches
+            </button>
+            <button class="tab-btn px-5 py-3 rounded-t-lg whitespace-nowrap" onclick="switchMainTab('tab-recommend', this)">
+                <i class="fa-solid fa-bullseye mr-2 text-slate-400"></i> 🎯 Recommendations
+            </button>
+            <button class="tab-btn px-5 py-3 rounded-t-lg whitespace-nowrap" onclick="switchMainTab('tab-agent', this)">
+                <i class="fa-solid fa-message mr-2 text-slate-400"></i> 💬 GoogleSaada Agent
+            </button>
+            <button class="tab-btn px-5 py-3 rounded-t-lg whitespace-nowrap" onclick="switchMainTab('tab-fixtures', this)">
+                <i class="fa-solid fa-calendar-days mr-2 text-slate-400"></i> 📅 Daily Fixtures
+            </button>
+            <button class="tab-btn px-5 py-3 rounded-t-lg whitespace-nowrap" onclick="switchMainTab('tab-scores', this)">
+                <i class="fa-solid fa-trophy mr-2 text-slate-400"></i> 🏆 Live Scores
+            </button>
+            <button class="tab-btn px-5 py-3 rounded-t-lg whitespace-nowrap" onclick="switchMainTab('tab-help', this)">
+                <i class="fa-solid fa-book-open mr-2 text-slate-400"></i> 📖 How to Use
+            </button>
+        </nav>
+
+        <main class="flex-1 overflow-y-auto bg-slateBg p-4 md:p-8 relative">
+
+            <!-- ========================================== -->
+            <!-- TAB 1: PREDICT MATCHES -->
+            <!-- ========================================== -->
+            <div id="tab-predict" class="tab-content active h-full">
+                
+                <div class="flex flex-wrap gap-3 mb-8 bg-white p-2 rounded-xl shadow-sm border border-slate-200 inline-flex">
+                    <button class="subtab-btn active px-6 py-2.5 rounded-lg text-sm text-slate-700 font-medium flex items-center gap-2" onclick="switchSubTab('sub-quick', this)">
+                        <i class="fa-solid fa-bolt text-yellow-500"></i> Quick Predict
+                    </button>
+                    <button class="subtab-btn px-6 py-2.5 rounded-lg text-sm text-slate-700 font-medium flex items-center gap-2" onclick="switchSubTab('sub-explorer', this)">
+                        <i class="fa-solid fa-magnifying-glass text-blue-500"></i> Fixture Explorer
+                    </button>
+                    <button class="subtab-btn px-6 py-2.5 rounded-lg text-sm text-slate-700 font-medium flex items-center gap-2" onclick="switchSubTab('sub-basket', this)">
+                        <i class="fa-solid fa-basket-shopping text-emerald-500"></i> My Bet Basket 
+                        <span id="basket-badge" class="ml-1 bg-slate-100 text-slate-700 py-0.5 px-2.5 rounded-full text-xs font-bold border border-slate-200 shadow-inner-soft">0</span>
+                    </button>
+                </div>
+
+                <!-- SUBTAB 1.1: Quick Predict (Redesigned Layout) -->
+                <div id="sub-quick" class="subtab-content active">
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Ask for matches or enter a fixture</h2>
+                        <p class="text-slate-500 mt-1">Quick Predict runs directly from a match name or prompt. No basket required.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        
+                        <!-- Left Column: Settings (Less Congested) -->
+                        <div class="lg:col-span-4 space-y-6">
+                            <div class="gs-card space-y-5">
+                                <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider border-b border-slate-100 pb-3 mb-4">Analysis Parameters</h3>
+                                
+                                <div>
+                                    <label class="gs-label text-slate-600">Time zone</label>
+                                    <select class="gs-input bg-slate-50">
+                                        <option>Africa/Douala</option>
+                                        <option>UTC</option>
+                                        <option>America/New_York</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="gs-label text-slate-600">Target Market Mix</label>
+                                    <select class="gs-input bg-slate-50">
+                                        <option>Mix / Best Outcome</option>
+                                        <option>Full-time Result (1X2)</option>
+                                        <option>Over/Under 2.5 Goals</option>
+                                        <option>Both Teams to Score</option>
+                                        <option>Exact Score</option>
+                                        <option>Half-time / Full-time (HT/FT)</option>
+                                        <option>Win or Draw (Double Chance)</option>
+                                        <option>Handicap</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="gs-label text-slate-600">Date Range</label>
+                                    <select class="gs-input bg-slate-50">
+                                        <option>Next 7 days</option>
+                                        <option>Today</option>
+                                        <option>Tomorrow</option>
+                                    </select>
+                                </div>
+
+                                <div class="pt-2">
+                                    <label class="gs-label text-slate-600 mb-3">Analysis preference</label>
+                                    <div class="grid grid-cols-2 gap-3 custom-radio">
+                                        <div><input type="radio" name="ap_quick" id="ap_low" value="Low"><label for="ap_low">Low</label></div>
+                                        <div><input type="radio" name="ap_quick" id="ap_med" value="Medium"><label for="ap_med">Medium</label></div>
+                                        <div><input type="radio" name="ap_quick" id="ap_high" value="High"><label for="ap_high">High</label></div>
+                                        <div><input type="radio" name="ap_quick" id="ap_bal" value="Balanced" checked><label for="ap_bal">Balanced</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Input & Results -->
+                        <div class="lg:col-span-8 flex flex-col gap-6">
+                            
+                            <div class="gs-card">
+                                <label class="gs-label text-lg text-slate-800">Enter a match or request matches</label>
+                                <p class="text-sm text-slate-500 mb-4">Type a prompt to find fixtures. Example: <em>"Arsenal vs Chelsea"</em> or <em>"Show me 5 matches tomorrow"</em>.</p>
+                                
+                                <textarea id="qp-prompt" class="gs-input h-32 resize-y font-mono text-base p-4 bg-slate-50/50 shadow-inner-soft focus:bg-white" placeholder="Arsenal vs Chelsea"></textarea>
+                                
+                                <div class="flex flex-wrap items-center gap-3 mt-5 pt-5 border-t border-slate-100">
+                                    <button onclick="qpSearchMatches()" class="btn btn-secondary shadow-sm">
+                                        <i class="fa-solid fa-magnifying-glass mr-2 text-primary"></i> Search Matches
+                                    </button>
+                                    <button onclick="qpClear()" class="btn text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                                        <i class="fa-solid fa-rotate-left mr-2"></i> Clear
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Progressive Disclosure: Status Panel -->
+                            <div id="qp-status-panel" class="gs-card hidden fade-in border-emerald-200 bg-emerald-50/30">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-emerald-100 p-2 rounded-full shrink-0">
+                                        <i class="fa-solid fa-check text-emerald-600 text-xl"></i>
+                                    </div>
+                                    <div class="w-full">
+                                        <p id="qp-status-text" class="text-base text-slate-800 font-semibold"></p>
+                                        
+                                        <!-- Embedded selection table before predicting -->
+                                        <div class="gs-table-container mt-4 hidden shadow-sm border-emerald-100" id="qp-pre-predict-table-container">
+                                            <table class="gs-table">
+                                                <thead class="bg-emerald-50/50 text-emerald-800"><tr><th>League</th><th>Kickoff</th><th>Match</th></tr></thead>
+                                                <tbody id="qp-pre-predict-table"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- EXPLICIT PROGRESSIVE DISCLOSURE ACTION -->
+                                <div class="mt-6 flex justify-end items-center border-t border-emerald-100 pt-5">
+                                    <p class="text-sm text-slate-500 mr-4 italic">Fixtures loaded and ready for analysis.</p>
+                                    <button id="qp-btn-predict" onclick="qpPredictNow()" class="btn btn-primary shadow-lg text-base px-8 py-3 w-full md:w-auto animate-pulse hover:animate-none">
+                                        <i class="fa-solid fa-microchip mr-2"></i> Analyze/Predict My Matches
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Prediction Output Panel (Hidden until Predicted) -->
+                            <div id="qp-results-panel" class="gs-card hidden fade-in border-primary/20 shadow-lg">
+                                <div class="flex justify-between items-center mb-5 pb-4 border-b border-slate-100">
+                                    <div>
+                                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                            <i class="fa-solid fa-chart-line text-primary"></i> Match-by-match probabilities
+                                        </h3>
+                                        <p class="text-sm text-slate-500">Verified model outputs</p>
+                                    </div>
+                                    <button onclick="copyResults('qp-results-panel')" class="btn btn-secondary text-xs px-3 py-1.5 border-slate-200">
+                                        <i class="fa-regular fa-copy mr-1.5"></i> Copy / Share
+                                    </button>
+                                </div>
+                                
+                                <div class="gs-table-container shadow-inner-soft">
+                                    <table class="gs-table text-xs">
+                                        <thead class="bg-slate-50 text-slate-600">
+                                            <tr>
+                                                <th>Match</th>
+                                                <th class="bg-blue-50/50">Home win</th>
+                                                <th class="bg-slate-50">Draw</th>
+                                                <th class="bg-red-50/50">Away win</th>
+                                                <th class="bg-orange-50/50">Over 2.5</th>
+                                                <th class="bg-slate-50">Under 2.5</th>
+                                                <th class="bg-emerald-50/50">BTTS Yes</th>
+                                                <th class="bg-slate-50">BTTS No</th>
+                                                <th>Leading 1X2</th>
+                                                <th>Exact score</th>
+                                                <th>Score prob.</th>
+                                                <th>HT/FT</th>
+                                                <th>HT/FT prob.</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="qp-results-body">
+                                            <!-- Populated via JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="mt-8 bg-slate-50 rounded-xl border border-slate-200 p-5">
+                                    <h4 class="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-brain text-purple-500"></i> Model Analysis Notes
+                                    </h4>
+                                    <div id="qp-analysis-notes" class="text-sm text-slate-600 leading-relaxed font-mono bg-white p-4 rounded-lg border border-slate-200 shadow-inner-soft whitespace-pre-wrap"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUBTAB 1.2: Fixture Explorer -->
+                <div id="sub-explorer" class="subtab-content">
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Browse scheduled fixtures</h2>
+                        <p class="text-slate-500 mt-1">Discover fixtures and add them to your Bet Basket. No predictions happen here.</p>
+                    </div>
+
+                    <div class="gs-card mb-6 bg-slate-50 border-slate-200">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-end">
+                            <div class="md:col-span-4 lg:col-span-3">
+                                <label class="gs-label">Competition</label>
+                                <select class="gs-input bg-white" id="fe-league">
+                                    <option value="All">All Leagues in the World</option>
+                                    <optgroup label="Top European">
+                                        <option>Premier League (England)</option>
+                                        <option>La Liga (Spain)</option>
+                                        <option>Serie A (Italy)</option>
+                                        <option>Bundesliga (Germany)</option>
+                                        <option>Ligue 1 (France)</option>
+                                    </optgroup>
+                                    <optgroup label="Other European">
+                                        <option>Eredivisie (Netherlands)</option>
+                                        <option>Primeira Liga (Portugal)</option>
+                                        <option>Süper Lig (Turkey)</option>
+                                        <option>Belgian Pro League</option>
+                                        <option>Scottish Premiership</option>
+                                        <option>Championship (England)</option>
+                                    </optgroup>
+                                    <optgroup label="Americas">
+                                        <option>MLS (USA)</option>
+                                        <option>Brasileirão Série A (Brazil)</option>
+                                        <option>Liga MX (Mexico)</option>
+                                        <option>Primera División (Argentina)</option>
+                                        <option>Categoría Primera A (Colombia)</option>
+                                    </optgroup>
+                                    <optgroup label="Asia & Oceania">
+                                        <option>Saudi Pro League</option>
+                                        <option>J1 League (Japan)</option>
+                                        <option>K League 1 (South Korea)</option>
+                                        <option>A-League (Australia)</option>
+                                        <option>Indian Super League</option>
+                                    </optgroup>
+                                    <optgroup label="Africa">
+                                        <option>DStv Premiership (South Africa)</option>
+                                        <option>Botola Pro (Morocco)</option>
+                                        <option>Egyptian Premier League</option>
+                                        <option>CAF Champions League</option>
+                                    </optgroup>
+                                    <optgroup label="International / Continental">
+                                        <option>UEFA Champions League</option>
+                                        <option>UEFA Europa League</option>
+                                        <option>UEFA Europa Conference League</option>
+                                        <option>Copa Libertadores</option>
+                                        <option>AFC Champions League</option>
+                                        <option>FIFA World Cup</option>
+                                        <option>UEFA European Championship</option>
+                                        <option>Copa America</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="md:col-span-3 lg:col-span-2">
+                                <label class="gs-label">Date Range</label>
+                                <select class="gs-input bg-white"><option>Next 7 days</option><option>Today</option><option>Tomorrow</option></select>
+                            </div>
+                            <div class="md:col-span-5 lg:col-span-5">
+                                <label class="gs-label">Search Team</label>
+                                <input type="text" class="gs-input bg-white" placeholder="e.g., Real Madrid">
+                            </div>
+                            <div class="md:col-span-12 lg:col-span-2 flex justify-end">
+                                <button onclick="feSearchFixtures()" class="btn btn-primary w-full shadow-md">
+                                    <i class="fa-solid fa-magnifying-glass mr-2"></i> Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gs-table-container shadow-md border-slate-200">
+                        <table class="gs-table">
+                            <thead class="bg-slate-100">
+                                <tr>
+                                    <th class="w-1/4">League</th>
+                                    <th class="w-1/6">Kickoff</th>
+                                    <th class="w-1/4">Home</th>
+                                    <th class="w-1/4">Away</th>
+                                    <th class="w-1/12 text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fe-table-body" class="bg-white">
+                                <tr><td colspan="5" class="px-6 py-16 text-center text-slate-500 bg-slate-50/50">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <i class="fa-solid fa-list-ul text-4xl text-slate-300 mb-4"></i>
+                                        <p class="text-base font-medium text-slate-600">Select parameters and click search to load schedules.</p>
+                                    </div>
+                                </td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SUBTAB 1.3: My Bet Basket -->
+                <div id="sub-basket" class="subtab-content">
+                    <div class="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-3">
+                                <i class="fa-solid fa-basket-shopping text-emerald-500"></i> My Bet Basket
+                            </h2>
+                            <p class="text-slate-500 mt-1">Review your selections (Max 16). Only successful model analyses use daily credits.</p>
+                        </div>
+                        <div class="bg-white px-5 py-2.5 rounded-xl border border-slate-200 text-sm font-bold text-slate-700 shadow-sm flex items-center gap-3">
+                            <span>Basket Count:</span> 
+                            <span id="basket-count-display" class="text-lg text-emerald-600 bg-emerald-50 px-3 py-1 rounded-md">0/16</span>
+                        </div>
+                    </div>
+
+                    <div class="gs-card mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-base font-bold text-slate-800">Current Selections</h3>
+                            <button onclick="clearBasket()" class="btn btn-secondary border-slate-200 text-xs py-1.5 px-3 hover:text-red-600 hover:bg-red-50 hover:border-red-200">
+                                <i class="fa-solid fa-trash-can mr-1.5"></i> Clear Basket
+                            </button>
+                        </div>
+
+                        <div class="gs-table-container mb-6 shadow-inner-soft">
+                            <table class="gs-table">
+                                <thead class="bg-slate-50">
+                                    <tr>
+                                        <th>League</th>
+                                        <th>Kickoff</th>
+                                        <th>Match</th>
+                                        <th class="text-right w-24">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="basket-table-body">
+                                    <tr><td colspan="4" class="px-6 py-12 text-center text-slate-500 bg-slate-50/50">Basket is empty. Select fixtures via the Fixture Explorer tab.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- EXPLICIT PROGRESSIVE DISCLOSURE PLACEHOLDER -->
+                        <div id="basket-analyze-placeholder" class="bg-slate-50 border-2 border-dashed border-slate-300 rounded-xl p-8 text-center transition-all">
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-slate-200 text-slate-400 mb-3">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-700 mb-1">Analysis Locked</h4>
+                            <p class="text-sm text-slate-500">Add fixtures from the Fixture Explorer to unlock the analysis engine.</p>
+                        </div>
+
+                        <!-- PROGRESSIVE DISCLOSURE: Hidden Analyze Basket Button -->
+                        <div id="basket-action-container" class="hidden fade-in bg-emerald-50 border border-emerald-200 rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+                            <div>
+                                <h4 class="text-lg font-bold text-emerald-800 mb-1">Ready for Analysis</h4>
+                                <p class="text-sm text-emerald-600">Executing models will consume daily credits for successful predictions.</p>
+                            </div>
+                            <button id="basket-btn-analyze" onclick="analyzeBasket()" class="btn btn-primary shadow-lg text-lg px-10 py-4 w-full md:w-auto animate-pulse hover:animate-none">
+                                <i class="fa-solid fa-microchip mr-2.5"></i> Analyze Selected Matches
+                            </button>
+                        </div>
+                    </div>
+                        
+                    <!-- Analysis Results (Hidden initially) -->
+                    <div id="basket-results-panel" class="gs-card hidden fade-in border-primary/20 shadow-lg">
+                        <div class="flex justify-between items-center mb-5 pb-4 border-b border-slate-100">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                    <i class="fa-solid fa-chart-line text-primary"></i> Match-by-match probabilities
+                                </h3>
+                                <p class="text-sm text-slate-500">Basket analysis complete</p>
+                            </div>
+                            <button onclick="copyResults('basket-results-panel')" class="btn btn-secondary text-xs px-3 py-1.5 border-slate-200">
+                                <i class="fa-regular fa-copy mr-1.5"></i> Copy / Share
+                            </button>
+                        </div>
+                        
+                        <div class="gs-table-container shadow-inner-soft">
+                            <table class="gs-table text-xs">
+                                <thead class="bg-slate-50 text-slate-600">
+                                    <tr>
+                                        <th>Match</th>
+                                        <th class="bg-blue-50/50">Home win</th>
+                                        <th class="bg-slate-50">Draw</th>
+                                        <th class="bg-red-50/50">Away win</th>
+                                        <th class="bg-orange-50/50">Over 2.5</th>
+                                        <th class="bg-slate-50">Under 2.5</th>
+                                        <th class="bg-emerald-50/50">BTTS Yes</th>
+                                        <th class="bg-slate-50">BTTS No</th>
+                                        <th>Leading 1X2</th>
+                                        <th>Exact score</th>
+                                        <th>Score prob.</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="basket-results-body"></tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-8 bg-slate-50 rounded-xl border border-slate-200 p-5">
+                            <h4 class="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-brain text-purple-500"></i> Model Analysis Notes
+                            </h4>
+                            <div id="basket-analysis-notes" class="text-sm text-slate-600 leading-relaxed font-mono bg-white p-4 rounded-lg border border-slate-200 shadow-inner-soft whitespace-pre-wrap"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TAB 2: RECOMMENDATIONS -->
+            <!-- ========================================== -->
+            <div id="tab-recommend" class="tab-content h-full">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Today's Verified Quick Picks</h2>
+                    <p class="text-slate-500 mt-1">FREE daily predictions. Up to 10 model-backed fixtures. No visitor credits deducted.</p>
+                </div>
+                
+                <div class="gs-card bg-slate-50 border-slate-200 mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-end">
+                        <div class="md:col-span-3">
+                            <label class="gs-label">Date</label>
+                            <input type="date" class="gs-input bg-white" id="rec-date">
+                        </div>
+                        <div class="md:col-span-4">
+                            <label class="gs-label">Market Strategy</label>
+                            <select class="gs-input bg-white">
+                                <option>Mix / Best Outcome</option>
+                                <option>Full-time Result (1X2)</option>
+                                <option>Over/Under 2.5 Goals</option>
+                                <option>Both Teams to Score</option>
+                                <option>Exact Score</option>
+                                <option>Win or Draw</option>
+                                <option>Handicap</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-5 flex justify-end">
+                            <button onclick="loadRecommendations()" class="btn btn-primary w-full shadow-md">
+                                <i class="fa-solid fa-bullseye mr-2"></i> Get Recommendations
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation Cards -->
+                <div id="rec-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div class="col-span-full py-20 text-center border-2 border-dashed border-slate-300 rounded-2xl bg-white shadow-sm transition-all">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 text-slate-400 mb-4">
+                            <i class="fa-solid fa-list-ul text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-700 mb-1">No Recommendations Loaded</h3>
+                        <p class="text-slate-500">Click 'Get Recommendations' to view eligible quick picks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TAB 3: AGENT -->
+            <!-- ========================================== -->
+            <div id="tab-agent" class="tab-content h-full">
+                <div class="bg-white rounded-2xl shadow-xl border border-slate-200 h-full flex flex-col max-w-4xl mx-auto overflow-hidden" style="height: calc(100vh - 200px); min-height: 500px;">
+                    <div class="p-5 border-b border-slate-200 bg-slate-50 flex items-center justify-between shrink-0">
+                        <div>
+                            <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                <i class="fa-solid fa-robot text-accent text-xl"></i> GoogleSaada Agent
+                            </h2>
+                            <p class="text-sm text-slate-500 mt-0.5">Deep analysis assistant connected to models & web search.</p>
+                        </div>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded border border-blue-200">Online</span>
+                    </div>
+                    
+                    <div id="chat-history" class="flex-1 overflow-y-auto p-6 flex flex-col gap-5 bg-slateBg">
+                        <div class="chat-bubble-agent">
+                            <strong>Hello!</strong> I am the GoogleSaada Agent. I can help you analyze matches deeply using our predictive models, or search the web for recent team news and form. How can I assist your strategy today?
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 bg-white border-t border-slate-200 shrink-0">
+                        <div class="flex gap-3 relative">
+                            <input type="text" id="chat-input" class="gs-input pr-32 bg-slate-50 border-slate-300 py-3 shadow-inner-soft" placeholder="Analyze Arsenal vs Chelsea injuries..." onkeypress="if(event.key === 'Enter') sendChatMessage()">
+                            <button onclick="sendChatMessage()" class="absolute right-2 top-2 bottom-2 px-6 bg-slateDark text-white rounded-md hover:bg-slate-800 font-semibold transition-colors shadow-sm">
+                                Send <i class="fa-solid fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TAB 4: DAILY FIXTURES -->
+            <!-- ========================================== -->
+            <div id="tab-fixtures" class="tab-content h-full">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Daily Fixtures Directory</h2>
+                    <p class="text-slate-500 mt-1">Browse all global scheduled matches and view current team standings.</p>
+                </div>
+                
+                <div class="gs-card bg-slate-50 border-slate-200 mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-end">
+                        <div class="md:col-span-3"><label class="gs-label">Date</label><input type="date" class="gs-input bg-white" id="fix-date"></div>
+                        <div class="md:col-span-5">
+                            <label class="gs-label">League</label>
+                            <select class="gs-input bg-white">
+                                <option value="All">All Leagues in the World</option>
+                                <optgroup label="Top European">
+                                    <option>Premier League (England)</option>
+                                    <option>La Liga (Spain)</option>
+                                    <option>Serie A (Italy)</option>
+                                    <option>Bundesliga (Germany)</option>
+                                    <option>Ligue 1 (France)</option>
+                                </optgroup>
+                                <optgroup label="Other European">
+                                    <option>Eredivisie (Netherlands)</option>
+                                    <option>Primeira Liga (Portugal)</option>
+                                    <option>Süper Lig (Turkey)</option>
+                                    <option>Belgian Pro League</option>
+                                    <option>Scottish Premiership</option>
+                                    <option>Championship (England)</option>
+                                </optgroup>
+                                <optgroup label="Americas">
+                                    <option>MLS (USA)</option>
+                                    <option>Brasileirão Série A (Brazil)</option>
+                                    <option>Liga MX (Mexico)</option>
+                                    <option>Primera División (Argentina)</option>
+                                    <option>Categoría Primera A (Colombia)</option>
+                                </optgroup>
+                                <optgroup label="Asia & Oceania">
+                                    <option>Saudi Pro League</option>
+                                    <option>J1 League (Japan)</option>
+                                    <option>K League 1 (South Korea)</option>
+                                    <option>A-League (Australia)</option>
+                                    <option>Indian Super League</option>
+                                </optgroup>
+                                <optgroup label="Africa">
+                                    <option>DStv Premiership (South Africa)</option>
+                                    <option>Botola Pro (Morocco)</option>
+                                    <option>Egyptian Premier League</option>
+                                    <option>CAF Champions League</option>
+                                </optgroup>
+                                <optgroup label="International / Continental">
+                                    <option>UEFA Champions League</option>
+                                    <option>UEFA Europa League</option>
+                                    <option>UEFA Europa Conference League</option>
+                                    <option>Copa Libertadores</option>
+                                    <option>AFC Champions League</option>
+                                    <option>FIFA World Cup</option>
+                                    <option>UEFA European Championship</option>
+                                    <option>Copa America</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="md:col-span-4 flex justify-end">
+                            <button class="btn btn-secondary w-full shadow-sm" onclick="loadDailyFixtures()">
+                                <i class="fa-solid fa-calendar-days mr-2"></i> Show Upcoming Fixtures
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="fixtures-container" class="hidden fade-in space-y-6">
+                    <div class="gs-card">
+                        <div class="flex justify-between items-center mb-5 pb-3 border-b border-slate-100">
+                            <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Premier_League_Logo.svg/1200px-Premier_League_Logo.svg.png" class="h-6 w-auto object-contain" onerror="this.style.display='none'"> 
+                                Premier League
+                            </h3>
+                            <button class="btn btn-secondary text-xs px-3 py-1.5" onclick="toggleStandings()">
+                                <i class="fa-solid fa-table-list mr-1.5 text-primary"></i> View Team Table
+                            </button>
+                        </div>
+                        
+                        <!-- Standings Modal / Expandable -->
+                        <div id="standings-panel" class="mb-6 bg-slateDark text-slate-300 rounded-xl p-5 hidden fade-in overflow-x-auto shadow-inner border border-slate-800">
+                            <h4 class="text-sm font-bold mb-3 text-white uppercase tracking-wider flex items-center gap-2">
+                                <i class="fa-solid fa-ranking-star text-yellow-500"></i> Current Standings
+                            </h4>
+                            <table class="w-full text-left text-sm whitespace-nowrap">
+                                <thead><tr class="border-b border-slate-700 text-slate-400">
+                                    <th class="py-2 px-3">Pos</th><th class="py-2 px-3">Team</th><th class="py-2 px-3 text-center">Pld</th><th class="py-2 px-3 text-center">W</th><th class="py-2 px-3 text-center">D</th><th class="py-2 px-3 text-center">L</th><th class="py-2 px-3 text-center">GF</th><th class="py-2 px-3 text-center">GA</th><th class="py-2 px-3 text-center">GD</th><th class="py-2 px-3 text-center font-bold text-white">Pts</th>
+                                </tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                        <div class="gs-table-container">
+                            <table class="gs-table">
+                                <thead class="bg-slate-50"><tr><th>Time (UTC)</th><th>Home Team</th><th>Away Team</th><th>Status</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td>12:00</td><td class="font-bold text-slate-800">Arsenal</td><td class="font-medium text-slate-600">Chelsea</td><td><span class="text-emerald-700 text-xs font-bold bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-200">Scheduled</span></td>
+                                    <td><button class="btn btn-secondary py-1 px-3 text-xs" onclick="switchMainTab('tab-predict', document.querySelector('.tab-btn')); switchSubTab('sub-quick', document.querySelector('.subtab-btn')); document.getElementById('qp-prompt').value='Arsenal vs Chelsea';">Predict</button></td></tr>
+                                    <tr><td>14:30</td><td class="font-bold text-slate-800">Man City</td><td class="font-medium text-slate-600">Liverpool</td><td><span class="text-emerald-700 text-xs font-bold bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-200">Scheduled</span></td>
+                                    <td><button class="btn btn-secondary py-1 px-3 text-xs" onclick="switchMainTab('tab-predict', document.querySelector('.tab-btn')); switchSubTab('sub-quick', document.querySelector('.subtab-btn')); document.getElementById('qp-prompt').value='Man City vs Liverpool';">Predict</button></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TAB 5: LIVE SCORES -->
+            <!-- ========================================== -->
+            <div id="tab-scores" class="tab-content h-full">
+                <div class="mb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Live Scores & Results</h2>
+                        <p class="text-slate-500 mt-1">Real-time global scores, independent of prediction models.</p>
+                    </div>
+                    <button class="btn btn-primary shadow-md" onclick="alert('Scores refreshed globally')">
+                        <i class="fa-solid fa-rotate mr-2"></i> Refresh Scores
+                    </button>
+                </div>
+                
+                <div class="flex gap-3 mb-8 bg-white p-2 rounded-xl border border-slate-200 inline-flex shadow-sm">
+                    <button class="px-5 py-2 bg-red-50 text-red-600 rounded-lg text-sm font-bold border border-red-200 shadow-sm flex items-center"><i class="fa-solid fa-circle-dot animate-pulse mr-2"></i> LIVE (3)</button>
+                    <button class="px-5 py-2 bg-white text-slate-600 rounded-lg text-sm font-medium hover:bg-slate-50 border border-transparent transition-colors">Completed</button>
+                    <button class="px-5 py-2 bg-white text-slate-600 rounded-lg text-sm font-medium hover:bg-slate-50 border border-transparent transition-colors">Scheduled</button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TAB 6: HELP -->
+            <!-- ========================================== -->
+            <div id="tab-help" class="tab-content h-full">
+                <div class="gs-card max-w-4xl mx-auto prose prose-slate">
+                    <h2 class="text-3xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-book-open text-primary"></i> How to Use GoogleSaada
+                    </h2>
+                    <div class="space-y-6 text-slate-600 leading-relaxed">
+                        <p class="text-lg">Welcome to the GoogleSaada V8 Prediction Engine. This system utilizes 13 verified, production-grade machine learning models to deeply analyze global football fixtures.</p>
+                        
+                        <div class="bg-blue-50/50 p-6 rounded-xl border border-blue-100">
+                            <h3 class="text-xl font-bold text-slate-800 mt-0 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-shield-halved text-blue-500"></i> Progressive Disclosure System
+                            </h3>
+                            <p class="mb-0 text-sm">To protect your daily quota of 20 credits, this interface uses <strong>Progressive Disclosure</strong>. Prediction buttons (like "Analyze/Predict My Matches" or "Analyze Selected Matches") are intentionally hidden until you have explicitly searched for and loaded scheduled fixtures. Browsing the fixture explorer is entirely free; executing the models consumes quota.</p>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-800 mt-8 mb-4">Available Markets & Mixes</h3>
+                        <ul class="list-disc pl-5 space-y-2 bg-slate-50 p-6 rounded-xl border border-slate-200">
+                            <li><strong>Mix / Best Outcome:</strong> The system automatically selects the highest confidence prediction across all active markets.</li>
+                            <li><strong>Full-Time Result (1X2):</strong> Probabilities for Home Win, Draw, Away Win.</li>
+                            <li><strong>Both Teams to Score (BTTS):</strong> Yes/No probabilities regarding offensive capabilities.</li>
+                            <li><strong>Over/Under 2.5 Goals:</strong> Likelihood of a high-scoring (3+) vs low-scoring (<3) match.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+'use strict';
+const GS={fixtures:[], basket:[], token:'', source:'', date:()=>new Date().toLocaleDateString('en-CA',{timeZone:'Africa/Douala'})};
+const E=id=>document.getElementById(id);
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function notify(x){const el=E('gs-live-notice');if(el)el.textContent=x;}
+async function request(url, opts={}){let r;try{r=await fetch(url,{...opts,headers:{'Content-Type':'application/json',...(opts.headers||{})}})}catch(e){throw Error('Connection failed: '+e.message)}let data=await r.json().catch(()=>({}));if(!r.ok)throw Error('HTTP '+r.status+': '+(typeof data.detail==='string'?data.detail:'Service unavailable'));return data}
+function switchMainTab(id,button){document.querySelectorAll('.tab-content').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));E(id)?.classList.add('active');button?.classList.add('active')}
+function switchSubTab(id,button){document.querySelectorAll('.subtab-content').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.subtab-btn').forEach(x=>x.classList.remove('active'));E(id)?.classList.add('active');button?.classList.add('active')}
+const league='eng.1'; // Until league label -> provider code mapping has been source-verified, never pretend global coverage.
+function chosenDate(){return E('fix-date')?.value||GS.date()}
+function normalizeFixtures(body){let a=Array.isArray(body)?body:(body.matches||body.fixtures||[]);if(!Array.isArray(a))throw Error('Unrecognized fixture response');return a.filter(f=>f.key&&f.home&&f.away&&f.kickoff_utc).map(f=>({...f,key:String(f.key)}))}
+async function fetchFixtures(day){const q=new URLSearchParams({day,league});return normalizeFixtures(await request('/api/v1/fixtures/public?'+q))}
+function fixtureRow(f){return `<tr><td>${esc(f.league)}</td><td>${esc(f.kickoff_utc)}</td><td>${esc(f.home)}</td><td>${esc(f.away)}</td><td><button class="btn btn-secondary" data-add="${esc(f.key)}">Add to Bet Basket</button></td></tr>`}
+async function feSearchFixtures(){const body=E('fe-table-body');body.innerHTML='<tr><td colspan="5">Loading verified fixtures…</td></tr>';try{GS.fixtures=await fetchFixtures(chosenDate());body.innerHTML=GS.fixtures.map(fixtureRow).join('')||'<tr><td colspan="5">No verified scheduled fixtures for this date and supported league.</td></tr>'}catch(e){body.textContent=e.message}}
+function addToBasket(key){const f=GS.fixtures.find(x=>x.key===key);if(!f)return notify('Fixture not verified');if(GS.basket.some(x=>x.key===key))return;if(GS.basket.length>=16)return notify('Basket is limited to 16 fixtures');GS.basket.push(f);updateBasketUI()}
+function removeFromBasket(key){GS.basket=GS.basket.filter(x=>x.key!==key);updateBasketUI()}
+function clearBasket(){GS.basket=[];updateBasketUI();E('basket-results-panel')?.classList.add('hidden')}
+function updateBasketUI(){E('basket-count-display').textContent=GS.basket.length+'/16';E('basket-badge').textContent=GS.basket.length;E('basket-table-body').innerHTML=GS.basket.map(f=>`<tr><td>${esc(f.league)}</td><td>${esc(f.kickoff_utc)}</td><td>${esc(f.home)} vs ${esc(f.away)}</td><td><button data-remove="${esc(f.key)}">Remove</button></td></tr>`).join('')||'<tr><td colspan="4">Basket empty</td></tr>';E('basket-action-container').classList.toggle('hidden',!GS.basket.length);E('basket-analyze-placeholder').classList.toggle('hidden',!!GS.basket.length)}
+function unavailablePrediction(panel,notes){panel?.classList.remove('hidden');if(notes)notes.textContent='Prediction unavailable: historical club identity approval and model calibration are not complete. No probabilities were generated.'}
+function analyzeBasket(){E('basket-results-body').replaceChildren();unavailablePrediction(E('basket-results-panel'),E('basket-analysis-notes'))}
+async function qpSearchMatches(){const prompt=E('qp-prompt').value.trim();if(!prompt)return notify('Enter a team or fixture');try{const a=await fetchFixtures(GS.date());const filtered=a.filter(f=>(f.home+' '+f.away).toLowerCase().includes(prompt.toLowerCase()));GS.fixtures=filtered;E('qp-status-text').textContent=filtered.length+' verified fixtures found';E('qp-pre-predict-table').innerHTML=filtered.map(f=>`<tr><td>${esc(f.league)}</td><td>${esc(f.kickoff_utc)}</td><td>${esc(f.home)} vs ${esc(f.away)}</td></tr>`).join('');E('qp-status-panel').classList.remove('hidden');E('qp-pre-predict-table-container').classList.remove('hidden');E('qp-btn-predict').parentElement.classList.toggle('hidden',!filtered.length)}catch(e){notify(e.message)}}
+function qpClear(){E('qp-prompt').value='';E('qp-status-panel').classList.add('hidden');E('qp-results-panel').classList.add('hidden')}
+function qpPredictNow(){E('qp-results-body').replaceChildren();unavailablePrediction(E('qp-results-panel'),E('qp-analysis-notes'))}
+async function loadRecommendations(){const box=E('rec-container');try{const r=await request('/api/v1/recommendations/public/status');box.textContent='Recommendations unavailable until model identity approval and calibration are complete. '+(r.status||'No verified picks.')}catch(e){box.textContent=e.message}}
+async function loadDailyFixtures(){const box=E('fixtures-container');box.classList.remove('hidden');try{const a=await fetchFixtures(chosenDate());box.replaceChildren();const p=document.createElement('div');p.className='gs-card';p.textContent=a.length?a.map(f=>`${f.kickoff_utc} | ${f.home} vs ${f.away}`).join(' • '):'No verified fixtures for the selected date and supported league';box.appendChild(p)}catch(e){box.textContent=e.message}}
+async function loadScores(){const root=E('tab-scores');const out=E('gs-scores-live');try{const data=await request('/api/v1/scores/public/live?'+new URLSearchParams({day:GS.date(),league,time_zone:'Africa/Douala'}));out.textContent=JSON.stringify(data,null,2)}catch(e){out.textContent=e.message}}
+async function sendChatMessage(){const input=E('chat-input'),msg=input.value.trim();if(!msg)return;input.value='';const hist=E('chat-history');let a=document.createElement('div');a.className='chat-bubble-user';a.textContent=msg;hist.appendChild(a);const reply=document.createElement('div');reply.className='chat-bubble-agent';reply.textContent='Checking verified data…';hist.appendChild(reply);try{if(!GS.token){let s=await request('/api/v1/agent/public/session',{method:'POST'});GS.token=s.access_token}const day=(msg.match(/\b\d{4}-\d{2}-\d{2}\b/)||[])[0]||GS.date();let body=await request('/api/v1/agent/public/conversation',{method:'POST',headers:{Authorization:'Bearer '+GS.token},body:JSON.stringify({message:msg,day,league,time_zone:'Africa/Douala'})});reply.textContent=body.reply||'No verified answer available'}catch(e){reply.textContent=e.message}hist.scrollTop=hist.scrollHeight}
+function toggleStandings(){notify('Live standings connector not yet verified; illustrative tables disabled')}
+function copyResults(){notify('No verified model result available to copy')}
+document.addEventListener('click',e=>{const add=e.target.closest('[data-add]');if(add)addToBasket(add.dataset.add);const rem=e.target.closest('[data-remove]');if(rem)removeFromBasket(rem.dataset.remove)});
+document.addEventListener('DOMContentLoaded',()=>{if(E('fix-date'))E('fix-date').value=GS.date();if(E('rec-date'))E('rec-date').value=GS.date();const s=E('tab-scores');const holder=document.createElement('pre');holder.id='gs-scores-live';holder.className='gs-card whitespace-pre-wrap overflow-auto';holder.textContent='Select Refresh Scores for live provider data.';s?.appendChild(holder);const note=document.createElement('div');note.id='gs-live-notice';note.setAttribute('role','status');note.className='text-sm text-slate-600 px-4';document.querySelector('main')?.prepend(note);const refresh=s?.querySelector('button[onclick*="alert"]');if(refresh){refresh.removeAttribute('onclick');refresh.addEventListener('click',loadScores)}const demo=s?.querySelector('.grid');if(demo)demo.remove();const standings=E('standings-panel');if(standings)standings.replaceChildren();const table=E('fixtures-container');if(table)table.replaceChildren();const help=E('tab-help');if(help){const p=help.querySelector('p.text-lg');if(p)p.textContent='GoogleSaada V8 provides public verified football-data research. Predictions remain unavailable until model and identity approval; the ten historically verified models are not automatically eligible for live inference.'}document.querySelectorAll('header strong').forEach(el=>{if(el.textContent.includes('20/20'))el.textContent='Guest';if(el.textContent==='Online')el.textContent='Checking'});const badge=document.querySelector('header .text-orange-400');if(badge)badge.textContent='V8 — Research Preview';updateBasketUI()});
+</script>
+</body>
+</html>
