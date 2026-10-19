@@ -1,0 +1,16 @@
+{
+  "policy_version": "v8-candidate-1",
+  "status": "DRAFT_NOT_APPROVED",
+  "requires_original_feature_parity": true,
+  "requires_pre_kickoff_evidence": true,
+  "requires_verifiable_provider": true,
+  "requires_fresh_historical_state": true,
+  "requires_known_team_id_mapping": true,
+  "requires_valid_probability_distributions": true,
+  "requires_model_checksum_match": true,
+  "requires_calendar_and_fixture_validation": true,
+  "requires_abstention_on_missing_evidence": true,
+  "requires_calibration_acceptance": true,
+  "requires_rollback_test": true,
+  "production_approved": false
+}

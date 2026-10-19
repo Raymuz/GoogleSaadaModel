@@ -1,0 +1,6 @@
+Hostinger Mail API, adapted from NTM sender cell 186.
+Set GS_HOSTINGER_API_TOKEN and GS_MAIL_FROM to a mailbox authorized under that token; do not reuse NTM sender branding or silently choose another mailbox.
+Set GOOGLESAADA_PUBLIC_BASE_URL to the real HTTPS staging application URL.
+These secrets belong in staging environment, never GitHub.
+No live email sent by this builder. Provider API format was based on the attached NTM source and requires a real provider test.
+Migration, OAuth, rate-limit E2E, email verification and browser acceptance remain pending.
