@@ -1,0 +1,139 @@
+{
+  "generated_utc": "2026-10-26T06:22:20.403869+00:00",
+  "source_file_count": 25,
+  "source_total_bytes": 255014,
+  "source_roots": {
+    "project": "/content/GoogleSaada_V9",
+    "flask_backend": "/content/backend_files",
+    "backend_deployment_kit": "/content/GoogleSaada_V9_Flask_Backend"
+  },
+  "sources": [
+    {
+      "root": "project",
+      "path": "config/source_manifest.json",
+      "bytes": 124251
+    },
+    {
+      "root": "project",
+      "path": "milestones/stage4_data_ready/20261026T023856Z/MILESTONE_README.txt",
+      "bytes": 2159
+    },
+    {
+      "root": "project",
+      "path": "milestones/stage4_data_ready/20261026T023856Z/sha256_manifest.json",
+      "bytes": 513
+    },
+    {
+      "root": "project",
+      "path": "model_registry/adaptive_19_model_source_kit/COLAB_IMPORT_ONCE.py",
+      "bytes": 2067
+    },
+    {
+      "root": "project",
+      "path": "model_registry/adaptive_19_model_source_kit/README.txt",
+      "bytes": 1630
+    },
+    {
+      "root": "project",
+      "path": "model_registry/adaptive_19_model_source_kit/manifest.json",
+      "bytes": 11757
+    },
+    {
+      "root": "project",
+      "path": "model_registry/adaptive_19_model_source_kit/contracts/legacy/feature_schema.json",
+      "bytes": 8320
+    },
+    {
+      "root": "project",
+      "path": "model_registry/adaptive_19_model_source_kit/contracts/legacy/google_saada_unified_model_registry.json",
+      "bytes": 16052
+    },
+    {
+      "root": "project",
+      "path": "model_registry/adaptive_19_model_source_kit/contracts/legacy/manifest.json",
+      "bytes": 13655
+    },
+    {
+      "root": "project",
+      "path": "model_registry/adaptive_19_model_source_kit/contracts/legacy/model_input_contracts.json",
+      "bytes": 19069
+    },
+    {
+      "root": "project",
+      "path": "model_registry/adaptive_19_model_source_kit/contracts/legacy/prematch_model_contracts.json",
+      "bytes": 8427
+    },
+    {
+      "root": "project",
+      "path": "model_registry/stage5d_enrollment/20261026T024559Z/model_and_data_hash_manifest.json",
+      "bytes": 2565
+    },
+    {
+      "root": "project",
+      "path": "stage2_public_loader/GoogleSaada_V9_Stage2_Public_Datasets.py",
+      "bytes": 10201
+    },
+    {
+      "root": "flask_backend",
+      "path": "app.py",
+      "bytes": 12285
+    },
+    {
+      "root": "flask_backend",
+      "path": "reasoning.py",
+      "bytes": 7532
+    },
+    {
+      "root": "flask_backend",
+      "path": "requirements.txt",
+      "bytes": 559
+    },
+    {
+      "root": "flask_backend",
+      "path": "release/REGISTRY.json",
+      "bytes": 1620
+    },
+    {
+      "root": "flask_backend",
+      "path": "release/artifacts/BTTS/contract.json",
+      "bytes": 1572
+    },
+    {
+      "root": "flask_backend",
+      "path": "release/artifacts/FT_AWAY/contract.json",
+      "bytes": 1533
+    },
+    {
+      "root": "flask_backend",
+      "path": "release/artifacts/FT_HOME/contract.json",
+      "bytes": 1533
+    },
+    {
+      "root": "flask_backend",
+      "path": "release/artifacts/HT_AWAY/contract.json",
+      "bytes": 1532
+    },
+    {
+      "root": "flask_backend",
+      "path": "release/artifacts/HT_HOME/contract.json",
+      "bytes": 1532
+    },
+    {
+      "root": "flask_backend",
+      "path": "release/artifacts/OVER_2_5/contract.json",
+      "bytes": 1585
+    },
+    {
+      "root": "flask_backend",
+      "path": "release/artifacts/SH_AWAY/contract.json",
+      "bytes": 1532
+    },
+    {
+      "root": "flask_backend",
+      "path": "release/artifacts/SH_HOME/contract.json",
+      "bytes": 1533
+    }
+  ],
+  "skipped": [],
+  "disclaimer": "Source snapshot; serialized models and datasets are in HF/checkpoints, not GitHub. Each code file must be reviewed before public disclosure."
+}

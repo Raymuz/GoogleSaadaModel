@@ -1,0 +1,59 @@
+{
+  "release_type": "GOOGLESAADA_V9_FLASK_BACKEND",
+  "registry_version": "1.0.0",
+  "created_utc": "2026-10-26T06:07:38.080800+00:00",
+  "source_checkpoint": "/content/GoogleSaada_V9/models/stage6e_specialist_qualification/20261026T045640Z",
+  "production_approved": false,
+  "models": [
+    {
+      "id": "FT_HOME",
+      "active": true,
+      "status": "CONTRACT_WRITTEN",
+      "contract": "artifacts/FT_HOME/contract.json"
+    },
+    {
+      "id": "FT_AWAY",
+      "active": true,
+      "status": "CONTRACT_WRITTEN",
+      "contract": "artifacts/FT_AWAY/contract.json"
+    },
+    {
+      "id": "HT_HOME",
+      "active": true,
+      "status": "CONTRACT_WRITTEN",
+      "contract": "artifacts/HT_HOME/contract.json"
+    },
+    {
+      "id": "HT_AWAY",
+      "active": true,
+      "status": "CONTRACT_WRITTEN",
+      "contract": "artifacts/HT_AWAY/contract.json"
+    },
+    {
+      "id": "SH_HOME",
+      "active": true,
+      "status": "CONTRACT_WRITTEN",
+      "contract": "artifacts/SH_HOME/contract.json"
+    },
+    {
+      "id": "SH_AWAY",
+      "active": true,
+      "status": "CONTRACT_WRITTEN",
+      "contract": "artifacts/SH_AWAY/contract.json"
+    },
+    {
+      "id": "BTTS",
+      "active": true,
+      "status": "CONTRACT_WRITTEN",
+      "contract": "artifacts/BTTS/contract.json"
+    },
+    {
+      "id": "OVER_2_5",
+      "active": true,
+      "status": "CONTRACT_WRITTEN",
+      "contract": "artifacts/OVER_2_5/contract.json"
+    }
+  ],
+  "original_models_preserved": 19,
+  "original_models_policy": "Historical pretrained models remain unchanged. New models use their own saved feature contracts."
+}

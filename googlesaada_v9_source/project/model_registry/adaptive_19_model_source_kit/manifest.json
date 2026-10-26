@@ -1,0 +1,299 @@
+{
+  "bundle": "GoogleSaada_V9_Adaptive_19_Model_OneUpload_Kit",
+  "created_utc": "2026-10-25T03:59:57.978362+00:00",
+  "model_count": 19,
+  "historical_specialist": 10,
+  "historical_worldwide": 3,
+  "v9_soccer_artifacts": 3,
+  "v9_nfl_artifacts": 3,
+  "note": "Historical source-model package; not a compatibility certification or training result.",
+  "files": [
+    {
+      "path": "models/legacy_13/specialist/elo_only_safe_v2.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 1969,
+      "sha256": "a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306"
+    },
+    {
+      "path": "models/legacy_13/specialist/ft_away_poisson_safe_v2.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 3633,
+      "sha256": "f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca"
+    },
+    {
+      "path": "models/legacy_13/specialist/ft_home_poisson_safe_v2.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 3633,
+      "sha256": "46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3"
+    },
+    {
+      "path": "models/legacy_13/specialist/ht_away_poisson_safe_v2.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 2849,
+      "sha256": "18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4"
+    },
+    {
+      "path": "models/legacy_13/specialist/ht_home_poisson_safe_v2.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 2849,
+      "sha256": "860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b"
+    },
+    {
+      "path": "models/legacy_13/specialist/logistic_regression_safe_v2.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 625402,
+      "sha256": "06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213"
+    },
+    {
+      "path": "models/legacy_13/specialist/random_forest_safe_v2.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 1918867,
+      "sha256": "5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e"
+    },
+    {
+      "path": "models/legacy_13/specialist/sh_away_poisson_safe_v2.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 2849,
+      "sha256": "e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5"
+    },
+    {
+      "path": "models/legacy_13/specialist/sh_home_poisson_safe_v2.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 2849,
+      "sha256": "d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad"
+    },
+    {
+      "path": "models/legacy_13/specialist/xgboost_safe_v2.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 2231144,
+      "sha256": "c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03"
+    },
+    {
+      "path": "models/legacy_13/worldwide/worldwide_btts.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 240406,
+      "sha256": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15"
+    },
+    {
+      "path": "models/legacy_13/worldwide/worldwide_match_result.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 605430,
+      "sha256": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360"
+    },
+    {
+      "path": "models/legacy_13/worldwide/worldwide_over_2_5.joblib",
+      "original_archive": "13_model_backup",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 240406,
+      "sha256": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec"
+    },
+    {
+      "path": "contracts/legacy/feature_schema.json",
+      "original_archive": "13_model_backup",
+      "kind": "contract",
+      "bytes": 8320,
+      "sha256": "e45c148a7b9ee437e4f93fa17b3b53bad7530a02fd73e617877299a91af74df8"
+    },
+    {
+      "path": "contracts/legacy/prematch_model_contracts.json",
+      "original_archive": "13_model_backup",
+      "kind": "contract",
+      "bytes": 8427,
+      "sha256": "dd7893e9a77e374b8907b2e14daba4993044bb482908cf3f20c5bf1ea75e0321"
+    },
+    {
+      "path": "contracts/legacy/manifest.json",
+      "original_archive": "13_model_backup",
+      "kind": "contract",
+      "bytes": 13655,
+      "sha256": "4d4e9929373173ec613eb01f468948f54632859217ca3419dbc9afeb3032985f"
+    },
+    {
+      "path": "contracts/legacy/model_input_contracts.json",
+      "original_archive": "13_model_backup",
+      "kind": "contract",
+      "bytes": 19069,
+      "sha256": "4d393d76f47987bd28c62b06ab7fe32af66e632a0be864b8aa4a428d3d02f951"
+    },
+    {
+      "path": "contracts/legacy/google_saada_unified_model_registry.json",
+      "original_archive": "13_model_backup",
+      "kind": "contract",
+      "bytes": 16052,
+      "sha256": "2783361bc2d90df243c15c3baa9c752048d4f46e25f6367ee3900c621397117b"
+    },
+    {
+      "path": "models/v9_stage5b5c/nfl/catboost_model.joblib",
+      "original_archive": "v9_stage5b5c",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 81943,
+      "sha256": "31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb"
+    },
+    {
+      "path": "models/v9_stage5b5c/nfl/lightgbm_model.joblib",
+      "original_archive": "v9_stage5b5c",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 103726,
+      "sha256": "77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759"
+    },
+    {
+      "path": "models/v9_stage5b5c/nfl/xgboost_model.joblib",
+      "original_archive": "v9_stage5b5c",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 105528,
+      "sha256": "b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c"
+    },
+    {
+      "path": "models/v9_stage5b5c/soccer/catboost_model.joblib",
+      "original_archive": "v9_stage5b5c",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 1917292,
+      "sha256": "e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90"
+    },
+    {
+      "path": "models/v9_stage5b5c/soccer/lightgbm_model.joblib",
+      "original_archive": "v9_stage5b5c",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 1009034,
+      "sha256": "1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82"
+    },
+    {
+      "path": "models/v9_stage5b5c/soccer/xgboost_model.joblib",
+      "original_archive": "v9_stage5b5c",
+      "kind": "joblib_untrusted_do_not_auto_load",
+      "bytes": 703763,
+      "sha256": "c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/hybrid_training_summary.csv",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 210,
+      "sha256": "0c6060f71b23eb202211f39f93cf4eb1390d2f6fb9864f2bb726f9ee086c64dd"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/nfl/catboost_7b16659b162f.sqlite3",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 114688,
+      "sha256": "111e4c4d2c448b7dcbdc4ee5efaad36c2efda9b0e110cf5d8450470863c975a7"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/nfl/hybrid_receipt.json",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 5893,
+      "sha256": "0e3b3844b8fd5078b904faa00e9507dc14547206574b0c4c041b3366542bf0c1"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/nfl/lightgbm_7b16659b162f.sqlite3",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 126976,
+      "sha256": "0d29218e196b85907b3303362db550c9e69ca088262f0f0b03626c6e699653d9"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/nfl/selection.json",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 2713,
+      "sha256": "112aa42f62418e0ab5ac0fbc34533fd55a6a10c194b55c823d8203416f677f45"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/nfl/validation_probability_comparison.parquet",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 149777,
+      "sha256": "02ad357e389c90758295dc5e056a1de7715c6cd35646c892778c6db08a8c316a"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/nfl/xgboost_7b16659b162f.sqlite3",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 122880,
+      "sha256": "f0e4dff7d8b693097ee47b5fb32789675609181008f1ff7926138aacc2649066"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/soccer/catboost_526e0cffe8c0.sqlite3",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 114688,
+      "sha256": "6f253abb15fc9a099bdfc5976b41ab0026efd6fac7d893c71155ed215cbbd434"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/soccer/hybrid_receipt.json",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 6026,
+      "sha256": "f9dcdd639e97017425666713caf9f693d09083d4bcc72c475d1d864529e0d1a5"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/soccer/lightgbm_526e0cffe8c0.sqlite3",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 126976,
+      "sha256": "7a7a2a14db8d03a8b602105bbb05e540e7a55f0fa4dde30d4927ba8cc28df7e8"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/soccer/selection.json",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 2822,
+      "sha256": "c13c86efa8fb5c7021ba7554dc954de93e1d6541155ec38253710e4c197b1d02"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/soccer/validation_probability_comparison.parquet",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 21714830,
+      "sha256": "4524986163a8bcf25c0dc8ca2075f04da2f65407c1f7d6840eb73a2f52f4afe5"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/models/stage5_hybrid/soccer/xgboost_526e0cffe8c0.sqlite3",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 122880,
+      "sha256": "7199073040efc0c9725844d947c249c896e62ef9b0df2fbc12e25f2e1a13be22"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/data/reports/V9_Stage5B5C_Hybrid_Training_Manifest.json",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 15188,
+      "sha256": "e65119e72f2697e58c46acd3835c4ae6cdaff8308cf4545829aee994877ce815"
+    },
+    {
+      "path": "evidence/v9_stage5b5c/backup_inventory.json",
+      "original_archive": "v9_stage5b5c",
+      "kind": "checkpoint_metadata",
+      "bytes": 5384,
+      "sha256": "9fdd9c222588e73c265b7843a609eeffd8688321628ac82fea84ba9bcfe88cdf"
+    },
+    {
+      "path": "README.txt",
+      "original_archive": "bundle",
+      "kind": "instructions",
+      "bytes": 1630,
+      "sha256": "2121e8593cd942b5add4b422a003bae9dd9bd3ed68d92a308fa7ea4c74c23569"
+    },
+    {
+      "path": "COLAB_IMPORT_ONCE.py",
+      "original_archive": "bundle",
+      "kind": "loader",
+      "bytes": 2067,
+      "sha256": "3cbf9fc6c4cb4db8317929ac69d62fc756d38f7cf241efe01da4cf132672c151"
+    }
+  ]
+}

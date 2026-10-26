@@ -1,0 +1,13 @@
+.env
+*.joblib
+*.pkl
+*.pickle
+*.csv
+*.parquet
+*.safetensors
+*.pt
+*.pth
+*.zip
+__pycache__/
+*.pyc
+.DS_Store

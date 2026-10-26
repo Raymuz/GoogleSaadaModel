@@ -1,0 +1,24 @@
+{
+  "model_sha256": {
+    "models/legacy_13/specialist/elo_only_safe_v2.joblib": "a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306",
+    "models/legacy_13/specialist/ft_away_poisson_safe_v2.joblib": "f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca",
+    "models/legacy_13/specialist/ft_home_poisson_safe_v2.joblib": "46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3",
+    "models/legacy_13/specialist/ht_away_poisson_safe_v2.joblib": "18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4",
+    "models/legacy_13/specialist/ht_home_poisson_safe_v2.joblib": "860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b",
+    "models/legacy_13/specialist/logistic_regression_safe_v2.joblib": "06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213",
+    "models/legacy_13/specialist/random_forest_safe_v2.joblib": "5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e",
+    "models/legacy_13/specialist/sh_away_poisson_safe_v2.joblib": "e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5",
+    "models/legacy_13/specialist/sh_home_poisson_safe_v2.joblib": "d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad",
+    "models/legacy_13/specialist/xgboost_safe_v2.joblib": "c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03",
+    "models/legacy_13/worldwide/worldwide_btts.joblib": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15",
+    "models/legacy_13/worldwide/worldwide_match_result.joblib": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360",
+    "models/legacy_13/worldwide/worldwide_over_2_5.joblib": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec",
+    "models/v9_stage5b5c/nfl/catboost_model.joblib": "31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb",
+    "models/v9_stage5b5c/nfl/lightgbm_model.joblib": "77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759",
+    "models/v9_stage5b5c/nfl/xgboost_model.joblib": "b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c",
+    "models/v9_stage5b5c/soccer/catboost_model.joblib": "e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90",
+    "models/v9_stage5b5c/soccer/lightgbm_model.joblib": "1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82",
+    "models/v9_stage5b5c/soccer/xgboost_model.joblib": "c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb"
+  },
+  "source_receipt_sha256": "4b7dc5e876ef30463684022d308c45fce910857e8f4f4715985874ba738bf786"
+}

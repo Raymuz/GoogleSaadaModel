@@ -1,0 +1,63 @@
+{
+  "contract_version": "1.0.0",
+  "id": "BTTS",
+  "sport": "soccer",
+  "task": "BTTS",
+  "artifact": "artifacts/BTTS/model.joblib",
+  "artifact_sha256": "297e3cb1509829982588148edf2667fe01898fd8c87c344d3241295df8474d31",
+  "input": {
+    "type": "precomputed_feature_vector",
+    "dtype": "float32",
+    "columns": [
+      "home_played",
+      "home_avg_ft_for",
+      "home_avg_ft_against",
+      "home_avg_ht_for",
+      "home_avg_ht_against",
+      "home_avg_points",
+      "home_history_size",
+      "away_played",
+      "away_avg_ft_for",
+      "away_avg_ft_against",
+      "away_avg_ht_for",
+      "away_avg_ht_against",
+      "away_avg_points",
+      "away_history_size",
+      "diff_played",
+      "diff_avg_ft_for",
+      "diff_avg_ft_against",
+      "diff_avg_ht_for",
+      "diff_avg_ht_against",
+      "diff_avg_points",
+      "diff_history_size"
+    ],
+    "length": 21,
+    "order_strict": true,
+    "source_recipe": "external_prior_day_team_rolling_v1"
+  },
+  "prediction": {
+    "method": "predict_proba",
+    "value": "probability",
+    "positive_class": 1,
+    "classes": [
+      0,
+      1
+    ]
+  },
+  "qualification": {
+    "status": "PROVISIONAL_EXAM_PASS_EXTERNAL_ONLY",
+    "exam": {
+      "primary": "binary_log_loss",
+      "loss": 0.6892014874185698,
+      "accuracy": 0.5364350966645421
+    },
+    "baseline": {
+      "primary": "binary_log_loss",
+      "loss": 0.690818717751537,
+      "accuracy": 0.5387720416401105
+    }
+  },
+  "production_approved": false,
+  "deployment_status": "RESEARCH_SMOKE_TEST_ONLY",
+  "license_review": "PENDING"
+}
