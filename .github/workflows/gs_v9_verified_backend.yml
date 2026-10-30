@@ -1,0 +1,33 @@
+name: GoogleSaada V9 Backend Source Verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'v9_backend/**'
+      - '.github/workflows/gs_v9_verified_backend.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  v9-source:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Verify syntax and original model activation registry
+        run: |
+          python -m compileall -q v9_backend/application
+          python - <<'PYCODE'
+          import json
+          from pathlib import Path
+          p = Path('v9_backend')
+          a = json.loads((p/'MODEL_ACTIVATION_APPROVALS.json').read_text())
+          r = json.loads((p/'ORIGINAL_MODEL_RELEASE_REGISTRY.json').read_text())
+          assert r['model_count'] == 19
+          assert len(a['approved_model_ids']) == 10
+          assert len(a['disabled_model_ids']) == 9
+          assert not set(a['approved_model_ids']) & set(a['disabled_model_ids'])
+          print('Original V9 source/registry checks passed; no model execution claimed')
+          PYCODE

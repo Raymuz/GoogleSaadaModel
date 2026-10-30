@@ -1,0 +1,2700 @@
+{
+  "schema_version": "1.0",
+  "project": "GoogleSaada_V9",
+  "stage": "6E_BACKEND_ARTIFACT_REGISTRY",
+  "created_utc": "2026-10-28T04:44:17.275611+00:00",
+  "origin_revision": "865b3e1737d6c4a9e92a186760f88850c515d9d0",
+  "artifact_root": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts",
+  "original_19_family_targets": {
+    "legacy_soccer": {
+      "expected_models": 10,
+      "native_historical_smoke_verified": 10,
+      "production_approved": false
+    },
+    "worldwide": {
+      "expected_models": 3,
+      "native_inference_pending": true,
+      "production_approved": false
+    },
+    "v9_original_soccer_nfl": {
+      "expected_models": 6,
+      "original_artifact_hashes_verified": 6,
+      "archived_validation_replay_passed": true,
+      "native_inference_pending": true,
+      "production_approved": false
+    }
+  },
+  "registered_file_instances": 85,
+  "unique_content_hashes": 66,
+  "binary_candidate_hashes": 66,
+  "supporting_artifact_hashes": 0,
+  "original_v9_model_contract_ids_matched": [
+    "v9_original/nfl/catboost_model",
+    "v9_original/nfl/lightgbm_model",
+    "v9_original/nfl/xgboost_model",
+    "v9_original/soccer/catboost_model",
+    "v9_original/soccer/lightgbm_model",
+    "v9_original/soccer/xgboost_model"
+  ],
+  "contract_entries": [
+    {
+      "model_id": "legacy/first_half_away_goals",
+      "model_family": "legacy_10",
+      "sha256": "18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4",
+      "artifact_reference": "original_artifacts/legacy_10/ht_away_poisson_safe_v2.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "legacy/first_half_home_goals",
+      "model_family": "legacy_10",
+      "sha256": "860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b",
+      "artifact_reference": "original_artifacts/legacy_10/ht_home_poisson_safe_v2.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "legacy/full_time_away_goals",
+      "model_family": "legacy_10",
+      "sha256": "f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca",
+      "artifact_reference": "original_artifacts/legacy_10/ft_away_poisson_safe_v2.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "legacy/full_time_elo",
+      "model_family": "legacy_10",
+      "sha256": "a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306",
+      "artifact_reference": "original_artifacts/legacy_10/elo_only_safe_v2.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "legacy/full_time_home_goals",
+      "model_family": "legacy_10",
+      "sha256": "46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3",
+      "artifact_reference": "original_artifacts/legacy_10/ft_home_poisson_safe_v2.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "legacy/full_time_logistic",
+      "model_family": "legacy_10",
+      "sha256": "06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213",
+      "artifact_reference": "original_artifacts/legacy_10/logistic_regression_safe_v2.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "legacy/full_time_random_forest",
+      "model_family": "legacy_10",
+      "sha256": "5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e",
+      "artifact_reference": "original_artifacts/legacy_10/random_forest_safe_v2.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "legacy/full_time_xgboost",
+      "model_family": "legacy_10",
+      "sha256": "c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03",
+      "artifact_reference": "original_artifacts/legacy_10/xgboost_safe_v2.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "legacy/second_half_away_goals",
+      "model_family": "legacy_10",
+      "sha256": "e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5",
+      "artifact_reference": "original_artifacts/legacy_10/sh_away_poisson_safe_v2.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "legacy/second_half_home_goals",
+      "model_family": "legacy_10",
+      "sha256": "d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad",
+      "artifact_reference": "original_artifacts/legacy_10/sh_home_poisson_safe_v2.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "worldwide/btts",
+      "model_family": "worldwide_3",
+      "sha256": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15",
+      "artifact_reference": "original_artifacts/worldwide_3/worldwide_btts.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "worldwide/match_result",
+      "model_family": "worldwide_3",
+      "sha256": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360",
+      "artifact_reference": "original_artifacts/worldwide_3/worldwide_match_result.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "worldwide/over_2_5",
+      "model_family": "worldwide_3",
+      "sha256": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec",
+      "artifact_reference": "original_artifacts/worldwide_3/worldwide_over_2_5.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "v9_original/soccer/catboost_model",
+      "model_family": "v9_original_6",
+      "sha256": "e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90",
+      "artifact_reference": "original_artifacts/v9_original_6/soccer/catboost_model.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "v9_original/soccer/lightgbm_model",
+      "model_family": "v9_original_6",
+      "sha256": "1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82",
+      "artifact_reference": "original_artifacts/v9_original_6/soccer/lightgbm_model.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "v9_original/soccer/xgboost_model",
+      "model_family": "v9_original_6",
+      "sha256": "c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb",
+      "artifact_reference": "original_artifacts/v9_original_6/soccer/xgboost_model.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "v9_original/nfl/catboost_model",
+      "model_family": "v9_original_6",
+      "sha256": "31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb",
+      "artifact_reference": "original_artifacts/v9_original_6/nfl/catboost_model.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "v9_original/nfl/lightgbm_model",
+      "model_family": "v9_original_6",
+      "sha256": "77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759",
+      "artifact_reference": "original_artifacts/v9_original_6/nfl/lightgbm_model.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    },
+    {
+      "model_id": "v9_original/nfl/xgboost_model",
+      "model_family": "v9_original_6",
+      "sha256": "b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c",
+      "artifact_reference": "original_artifacts/v9_original_6/nfl/xgboost_model.joblib",
+      "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+    }
+  ],
+  "objects": [
+    {
+      "object_id": "01319355727518ee56ef35f067f6850d67816d2bffe62347be526dc80194de9f",
+      "sha256": "01319355727518ee56ef35f067f6850d67816d2bffe62347be526dc80194de9f",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/01/01319355727518ee56ef35f067f6850d67816d2bffe62347be526dc80194de9f.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213",
+      "sha256": "06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213",
+      "file_instances": 2,
+      "source_paths": [
+        "deployment_files/models/logistic_regression_safe_v2.joblib",
+        "release/preserved_models/06/06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "legacy/full_time_logistic",
+          "model_family": "legacy_10",
+          "sha256": "06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213",
+          "artifact_reference": "original_artifacts/legacy_10/logistic_regression_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "076b2033630e5fbbd33c8d59bd3e2652d49e7a4f7c8d938d30db9f337820473a",
+      "sha256": "076b2033630e5fbbd33c8d59bd3e2652d49e7a4f7c8d938d30db9f337820473a",
+      "file_instances": 1,
+      "source_paths": [
+        "release/artifacts/SH_HOME/model.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "0bd0d4439a39da85dc32189c80adcd9edd1daf8c0af0527caedd7ea60763bcbf",
+      "sha256": "0bd0d4439a39da85dc32189c80adcd9edd1daf8c0af0527caedd7ea60763bcbf",
+      "file_instances": 2,
+      "source_paths": [
+        "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/soccer_result.joblib",
+        "v95_service/models/v92_candidates/soccer_result.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "0e5d7e49ae05fcbcf4e2fd1f5dff8a7b2b4f207b2fc6f1a500b9ceef0c2dc7c8",
+      "sha256": "0e5d7e49ae05fcbcf4e2fd1f5dff8a7b2b4f207b2fc6f1a500b9ceef0c2dc7c8",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/0e/0e5d7e49ae05fcbcf4e2fd1f5dff8a7b2b4f207b2fc6f1a500b9ceef0c2dc7c8.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "139fdbe60a7826ad14f28ccd70a9fc02358f648e2cd5225b7eabdbe64419b631",
+      "sha256": "139fdbe60a7826ad14f28ccd70a9fc02358f648e2cd5225b7eabdbe64419b631",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/13/139fdbe60a7826ad14f28ccd70a9fc02358f648e2cd5225b7eabdbe64419b631.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec",
+      "sha256": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec",
+      "file_instances": 2,
+      "source_paths": [
+        "global_v3/v2g_staging/models/worldwide_over_2_5.joblib",
+        "release/preserved_models/17/17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "worldwide/over_2_5",
+          "model_family": "worldwide_3",
+          "sha256": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec",
+          "artifact_reference": "original_artifacts/worldwide_3/worldwide_over_2_5.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4",
+      "sha256": "18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4",
+      "file_instances": 2,
+      "source_paths": [
+        "deployment_files/models/ht_away_poisson_safe_v2.joblib",
+        "release/preserved_models/18/18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "legacy/first_half_away_goals",
+          "model_family": "legacy_10",
+          "sha256": "18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4",
+          "artifact_reference": "original_artifacts/legacy_10/ht_away_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "1dbbd5d0936089084a50eec18b29154e126c5ae95c8e1bfff0aae56bf3eafbd8",
+      "sha256": "1dbbd5d0936089084a50eec18b29154e126c5ae95c8e1bfff0aae56bf3eafbd8",
+      "file_instances": 1,
+      "source_paths": [
+        "release/artifacts/SH_AWAY/model.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82",
+      "sha256": "1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/1f/1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "v9_original/soccer/lightgbm_model",
+          "model_family": "v9_original_6",
+          "sha256": "1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82",
+          "artifact_reference": "original_artifacts/v9_original_6/soccer/lightgbm_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "21a088555e2103d036cf3a693cf7af5c56cd55104d96ff4e5ba6b682817383ef",
+      "sha256": "21a088555e2103d036cf3a693cf7af5c56cd55104d96ff4e5ba6b682817383ef",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/21/21a088555e2103d036cf3a693cf7af5c56cd55104d96ff4e5ba6b682817383ef.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "21dfa1695021551cff5272810bbbdf8583d231e97602fc2972d03ac8871b1fd7",
+      "sha256": "21dfa1695021551cff5272810bbbdf8583d231e97602fc2972d03ac8871b1fd7",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/21/21dfa1695021551cff5272810bbbdf8583d231e97602fc2972d03ac8871b1fd7.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "2528baccaac95a1fd054bbd23adf1d737d3bfefb61abd156aa0bbd77b0e7fd42",
+      "sha256": "2528baccaac95a1fd054bbd23adf1d737d3bfefb61abd156aa0bbd77b0e7fd42",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/25/2528baccaac95a1fd054bbd23adf1d737d3bfefb61abd156aa0bbd77b0e7fd42.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "297e3cb1509829982588148edf2667fe01898fd8c87c344d3241295df8474d31",
+      "sha256": "297e3cb1509829982588148edf2667fe01898fd8c87c344d3241295df8474d31",
+      "file_instances": 1,
+      "source_paths": [
+        "release/artifacts/BTTS/model.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "2f947073ebf26bb50f2a7d7ec33db91ab8370f54169669c5396d0346f4a9aa54",
+      "sha256": "2f947073ebf26bb50f2a7d7ec33db91ab8370f54169669c5396d0346f4a9aa54",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/2f/2f947073ebf26bb50f2a7d7ec33db91ab8370f54169669c5396d0346f4a9aa54.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "3169f0507e52d9b9a8238211db8b11e65fe9c410154e6ee2b49186b9e3377934",
+      "sha256": "3169f0507e52d9b9a8238211db8b11e65fe9c410154e6ee2b49186b9e3377934",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/31/3169f0507e52d9b9a8238211db8b11e65fe9c410154e6ee2b49186b9e3377934.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb",
+      "sha256": "31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/31/31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "v9_original/nfl/catboost_model",
+          "model_family": "v9_original_6",
+          "sha256": "31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb",
+          "artifact_reference": "original_artifacts/v9_original_6/nfl/catboost_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "3721363a812b8597ac827fb5d676c3485ca0a35a3296de12e5550b77081aea50",
+      "sha256": "3721363a812b8597ac827fb5d676c3485ca0a35a3296de12e5550b77081aea50",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/37/3721363a812b8597ac827fb5d676c3485ca0a35a3296de12e5550b77081aea50.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "3f7214fd678779d9df5f93911f9888201b2307f844c2526a4b4c7a607b73a48f",
+      "sha256": "3f7214fd678779d9df5f93911f9888201b2307f844c2526a4b4c7a607b73a48f",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/3f/3f7214fd678779d9df5f93911f9888201b2307f844c2526a4b4c7a607b73a48f.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3",
+      "sha256": "46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3",
+      "file_instances": 2,
+      "source_paths": [
+        "deployment_files/models/ft_home_poisson_safe_v2.joblib",
+        "release/preserved_models/46/46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "legacy/full_time_home_goals",
+          "model_family": "legacy_10",
+          "sha256": "46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3",
+          "artifact_reference": "original_artifacts/legacy_10/ft_home_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "4c3ac70a0206d9c6943d11b18816f13d13bb194ad477271729351f4a74d0a3ed",
+      "sha256": "4c3ac70a0206d9c6943d11b18816f13d13bb194ad477271729351f4a74d0a3ed",
+      "file_instances": 2,
+      "source_paths": [
+        "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/american_football_result.joblib",
+        "v95_service/models/v92_candidates/american_football_result.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15",
+      "sha256": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15",
+      "file_instances": 2,
+      "source_paths": [
+        "global_v3/v2g_staging/models/worldwide_btts.joblib",
+        "release/preserved_models/4d/4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "worldwide/btts",
+          "model_family": "worldwide_3",
+          "sha256": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15",
+          "artifact_reference": "original_artifacts/worldwide_3/worldwide_btts.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "4ecc10bbf874baf1e62045048741a042f406f6e40903d314dac68300056caec6",
+      "sha256": "4ecc10bbf874baf1e62045048741a042f406f6e40903d314dac68300056caec6",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/4e/4ecc10bbf874baf1e62045048741a042f406f6e40903d314dac68300056caec6.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "518ffc0e5a1fa71dfb4495c63447aa8109aade3ed502dd70c7795c4de2505f2d",
+      "sha256": "518ffc0e5a1fa71dfb4495c63447aa8109aade3ed502dd70c7795c4de2505f2d",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/51/518ffc0e5a1fa71dfb4495c63447aa8109aade3ed502dd70c7795c4de2505f2d.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "54a361b2623d8fcef48b491d2875ac226111cedec542a68b2793da1dc7e165df",
+      "sha256": "54a361b2623d8fcef48b491d2875ac226111cedec542a68b2793da1dc7e165df",
+      "file_instances": 1,
+      "source_paths": [
+        "release/artifacts/FT_AWAY/model.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e",
+      "sha256": "5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e",
+      "file_instances": 2,
+      "source_paths": [
+        "deployment_files/models/random_forest_safe_v2.joblib",
+        "release/preserved_models/5a/5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "legacy/full_time_random_forest",
+          "model_family": "legacy_10",
+          "sha256": "5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e",
+          "artifact_reference": "original_artifacts/legacy_10/random_forest_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "67551e242370d8e370dd8b9a747c1ab0fa89b5467a3dabd0924a08355223275d",
+      "sha256": "67551e242370d8e370dd8b9a747c1ab0fa89b5467a3dabd0924a08355223275d",
+      "file_instances": 1,
+      "source_paths": [
+        "release/artifacts/FT_HOME/model.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "6b345e7ab62c5848a9b7723af91db06883efefbc009a8f28053c1f7ae479e7ef",
+      "sha256": "6b345e7ab62c5848a9b7723af91db06883efefbc009a8f28053c1f7ae479e7ef",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/6b/6b345e7ab62c5848a9b7723af91db06883efefbc009a8f28053c1f7ae479e7ef.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "6b6c3c53c813a15ab4b3297d254e33f51c88604a0cc102fc4e3578f570bd9cce",
+      "sha256": "6b6c3c53c813a15ab4b3297d254e33f51c88604a0cc102fc4e3578f570bd9cce",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/6b/6b6c3c53c813a15ab4b3297d254e33f51c88604a0cc102fc4e3578f570bd9cce.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "740ef36eefed658266651a48fc7054acede026f5ed909c3a0796ad50fb432f6d",
+      "sha256": "740ef36eefed658266651a48fc7054acede026f5ed909c3a0796ad50fb432f6d",
+      "file_instances": 2,
+      "source_paths": [
+        "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/american_football_total.joblib",
+        "v95_service/models/v92_candidates/american_football_total.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759",
+      "sha256": "77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/77/77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "v9_original/nfl/lightgbm_model",
+          "model_family": "v9_original_6",
+          "sha256": "77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759",
+          "artifact_reference": "original_artifacts/v9_original_6/nfl/lightgbm_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "78457f389943deae37a0739dd1c914f92a185565626cbfb28470377ee938e19d",
+      "sha256": "78457f389943deae37a0739dd1c914f92a185565626cbfb28470377ee938e19d",
+      "file_instances": 2,
+      "source_paths": [
+        "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/basketball_result.joblib",
+        "v95_service/models/v92_candidates/basketball_result.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "79975de2e31879ddd07cd97a56f1a2054bd2d2d50111c058db2e1b923c420587",
+      "sha256": "79975de2e31879ddd07cd97a56f1a2054bd2d2d50111c058db2e1b923c420587",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/79/79975de2e31879ddd07cd97a56f1a2054bd2d2d50111c058db2e1b923c420587.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "7ca99eeba3546410762da3d1732733c05b24c08e3f390cee5f64f357aff906c7",
+      "sha256": "7ca99eeba3546410762da3d1732733c05b24c08e3f390cee5f64f357aff906c7",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/7c/7ca99eeba3546410762da3d1732733c05b24c08e3f390cee5f64f357aff906c7.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "7d9711148fa98dabcd95be24d063c4d0b5a2f26f76e9ca8e2e29fe08ff18c4fb",
+      "sha256": "7d9711148fa98dabcd95be24d063c4d0b5a2f26f76e9ca8e2e29fe08ff18c4fb",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/7d/7d9711148fa98dabcd95be24d063c4d0b5a2f26f76e9ca8e2e29fe08ff18c4fb.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "80722f0fbc86b31e5f2d875bce16e5d4ad4aec761e7ce816cfac2228cf31d1d1",
+      "sha256": "80722f0fbc86b31e5f2d875bce16e5d4ad4aec761e7ce816cfac2228cf31d1d1",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/80/80722f0fbc86b31e5f2d875bce16e5d4ad4aec761e7ce816cfac2228cf31d1d1.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "80b662c0fe219e4124bbad032e8bab2084065960c963c2283e5cd088166bac67",
+      "sha256": "80b662c0fe219e4124bbad032e8bab2084065960c963c2283e5cd088166bac67",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/80/80b662c0fe219e4124bbad032e8bab2084065960c963c2283e5cd088166bac67.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b",
+      "sha256": "860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b",
+      "file_instances": 2,
+      "source_paths": [
+        "deployment_files/models/ht_home_poisson_safe_v2.joblib",
+        "release/preserved_models/86/860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "legacy/first_half_home_goals",
+          "model_family": "legacy_10",
+          "sha256": "860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b",
+          "artifact_reference": "original_artifacts/legacy_10/ht_home_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "94e610ca3649d0db70b3accf00541b63a2494d654bbad0464aa42f44f08f6c9e",
+      "sha256": "94e610ca3649d0db70b3accf00541b63a2494d654bbad0464aa42f44f08f6c9e",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/94/94e610ca3649d0db70b3accf00541b63a2494d654bbad0464aa42f44f08f6c9e.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "9bbcf88bf16b15a8454e87306c31f0488cc4b179e1eb4ffb9c354ebdb5fe06ce",
+      "sha256": "9bbcf88bf16b15a8454e87306c31f0488cc4b179e1eb4ffb9c354ebdb5fe06ce",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/9b/9bbcf88bf16b15a8454e87306c31f0488cc4b179e1eb4ffb9c354ebdb5fe06ce.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306",
+      "sha256": "a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306",
+      "file_instances": 2,
+      "source_paths": [
+        "deployment_files/models/elo_only_safe_v2.joblib",
+        "release/preserved_models/a0/a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "legacy/full_time_elo",
+          "model_family": "legacy_10",
+          "sha256": "a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306",
+          "artifact_reference": "original_artifacts/legacy_10/elo_only_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "a63cae4ed5608efd7f752a13391bd1c18c511c6e71b3e9821fe01524737e48be",
+      "sha256": "a63cae4ed5608efd7f752a13391bd1c18c511c6e71b3e9821fe01524737e48be",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/a6/a63cae4ed5608efd7f752a13391bd1c18c511c6e71b3e9821fe01524737e48be.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "b1a3b4c0e31fd992a9768b50531056de44052aa3c855fe59c0b0dd9cd206695a",
+      "sha256": "b1a3b4c0e31fd992a9768b50531056de44052aa3c855fe59c0b0dd9cd206695a",
+      "file_instances": 1,
+      "source_paths": [
+        "release/artifacts/OVER_2_5/model.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c",
+      "sha256": "b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/b9/b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "v9_original/nfl/xgboost_model",
+          "model_family": "v9_original_6",
+          "sha256": "b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c",
+          "artifact_reference": "original_artifacts/v9_original_6/nfl/xgboost_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "bcdb3f73a8c90718e638e56247c53102869af7fb11e56d798dab0b36a48ea0ca",
+      "sha256": "bcdb3f73a8c90718e638e56247c53102869af7fb11e56d798dab0b36a48ea0ca",
+      "file_instances": 2,
+      "source_paths": [
+        "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/basketball_total.joblib",
+        "v95_service/models/v92_candidates/basketball_total.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "c2bbdaaa6d460b562a867307e9553ff028646a40536a1afaae31b8d7b9a91e29",
+      "sha256": "c2bbdaaa6d460b562a867307e9553ff028646a40536a1afaae31b8d7b9a91e29",
+      "file_instances": 2,
+      "source_paths": [
+        "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/soccer_total.joblib",
+        "v95_service/models/v92_candidates/soccer_total.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03",
+      "sha256": "c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03",
+      "file_instances": 2,
+      "source_paths": [
+        "deployment_files/models/xgboost_safe_v2.joblib",
+        "release/preserved_models/c6/c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "legacy/full_time_xgboost",
+          "model_family": "legacy_10",
+          "sha256": "c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03",
+          "artifact_reference": "original_artifacts/legacy_10/xgboost_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "c731e89ed8215b0d96d2af2f43cc520d8146c67c738b95c096e89a95c4cc6313",
+      "sha256": "c731e89ed8215b0d96d2af2f43cc520d8146c67c738b95c096e89a95c4cc6313",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/c7/c731e89ed8215b0d96d2af2f43cc520d8146c67c738b95c096e89a95c4cc6313.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb",
+      "sha256": "c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/c8/c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "v9_original/soccer/xgboost_model",
+          "model_family": "v9_original_6",
+          "sha256": "c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb",
+          "artifact_reference": "original_artifacts/v9_original_6/soccer/xgboost_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "c942df2cb3115258db98bca0d538c847d5842f915dcf7f2cfd82ef32bf67008e",
+      "sha256": "c942df2cb3115258db98bca0d538c847d5842f915dcf7f2cfd82ef32bf67008e",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/c9/c942df2cb3115258db98bca0d538c847d5842f915dcf7f2cfd82ef32bf67008e.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "ca57c98120d951f54b9ad4ad48afd6fd71f5cc2ecadef66099a12f95ac3f8ff2",
+      "sha256": "ca57c98120d951f54b9ad4ad48afd6fd71f5cc2ecadef66099a12f95ac3f8ff2",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/ca/ca57c98120d951f54b9ad4ad48afd6fd71f5cc2ecadef66099a12f95ac3f8ff2.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "ca62a1594e621655abc266a0ea49c955e3cb1f35b638566b22f75fcf20fd5971",
+      "sha256": "ca62a1594e621655abc266a0ea49c955e3cb1f35b638566b22f75fcf20fd5971",
+      "file_instances": 1,
+      "source_paths": [
+        "release/artifacts/HT_AWAY/model.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "cd9b3e15fc22c7ac19ef40432e019ed76b46c792755cff452d5d92c98396df00",
+      "sha256": "cd9b3e15fc22c7ac19ef40432e019ed76b46c792755cff452d5d92c98396df00",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/cd/cd9b3e15fc22c7ac19ef40432e019ed76b46c792755cff452d5d92c98396df00.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "cf85bf8b17a72b9ba7dcb56403dced99ec86ece9bc7734af820a01ecd7025bbe",
+      "sha256": "cf85bf8b17a72b9ba7dcb56403dced99ec86ece9bc7734af820a01ecd7025bbe",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/cf/cf85bf8b17a72b9ba7dcb56403dced99ec86ece9bc7734af820a01ecd7025bbe.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad",
+      "sha256": "d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad",
+      "file_instances": 2,
+      "source_paths": [
+        "deployment_files/models/sh_home_poisson_safe_v2.joblib",
+        "release/preserved_models/d2/d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "legacy/second_half_home_goals",
+          "model_family": "legacy_10",
+          "sha256": "d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad",
+          "artifact_reference": "original_artifacts/legacy_10/sh_home_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360",
+      "sha256": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360",
+      "file_instances": 2,
+      "source_paths": [
+        "global_v3/v2g_staging/models/worldwide_match_result.joblib",
+        "release/preserved_models/d4/d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "worldwide/match_result",
+          "model_family": "worldwide_3",
+          "sha256": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360",
+          "artifact_reference": "original_artifacts/worldwide_3/worldwide_match_result.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "d997dda74d7e05ccc6b9b3e227443d257072a27b42f29582f3fb941c73952375",
+      "sha256": "d997dda74d7e05ccc6b9b3e227443d257072a27b42f29582f3fb941c73952375",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/d9/d997dda74d7e05ccc6b9b3e227443d257072a27b42f29582f3fb941c73952375.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "dfbb8fa3718f5418c2f52e5d56d346b7efde1e805b8bba44b3e1f1abe5805c7a",
+      "sha256": "dfbb8fa3718f5418c2f52e5d56d346b7efde1e805b8bba44b3e1f1abe5805c7a",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/df/dfbb8fa3718f5418c2f52e5d56d346b7efde1e805b8bba44b3e1f1abe5805c7a.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "e1bd58338b5f39bbe7aaab9e24a222c9509811b90a0f840e5453004cc6323709",
+      "sha256": "e1bd58338b5f39bbe7aaab9e24a222c9509811b90a0f840e5453004cc6323709",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/e1/e1bd58338b5f39bbe7aaab9e24a222c9509811b90a0f840e5453004cc6323709.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5",
+      "sha256": "e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5",
+      "file_instances": 2,
+      "source_paths": [
+        "deployment_files/models/sh_away_poisson_safe_v2.joblib",
+        "release/preserved_models/e2/e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "legacy/second_half_away_goals",
+          "model_family": "legacy_10",
+          "sha256": "e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5",
+          "artifact_reference": "original_artifacts/legacy_10/sh_away_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "e5c1fed4fff09ecb6d53c4c899dde08e53eb43773e5a5bfa6d8c342c96e1debc",
+      "sha256": "e5c1fed4fff09ecb6d53c4c899dde08e53eb43773e5a5bfa6d8c342c96e1debc",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/e5/e5c1fed4fff09ecb6d53c4c899dde08e53eb43773e5a5bfa6d8c342c96e1debc.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "e7fffaef255910f0635bebc62119c42b11c6f56ffcb855d15a1f2a1f81d05e5c",
+      "sha256": "e7fffaef255910f0635bebc62119c42b11c6f56ffcb855d15a1f2a1f81d05e5c",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/e7/e7fffaef255910f0635bebc62119c42b11c6f56ffcb855d15a1f2a1f81d05e5c.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "e8913f77b2244cfbab17369c64aeb79378d36fed5b92374824457642d7da0e41",
+      "sha256": "e8913f77b2244cfbab17369c64aeb79378d36fed5b92374824457642d7da0e41",
+      "file_instances": 1,
+      "source_paths": [
+        "release/artifacts/HT_HOME/model.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90",
+      "sha256": "e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/e9/e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "v9_original/soccer/catboost_model",
+          "model_family": "v9_original_6",
+          "sha256": "e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90",
+          "artifact_reference": "original_artifacts/v9_original_6/soccer/catboost_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "eadf5a3c524567ebc9033b72e5f280fb606cda6ff5e85c30bd7b46f657d48971",
+      "sha256": "eadf5a3c524567ebc9033b72e5f280fb606cda6ff5e85c30bd7b46f657d48971",
+      "file_instances": 1,
+      "source_paths": [
+        "release/preserved_models/ea/eadf5a3c524567ebc9033b72e5f280fb606cda6ff5e85c30bd7b46f657d48971.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    },
+    {
+      "object_id": "f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca",
+      "sha256": "f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca",
+      "file_instances": 2,
+      "source_paths": [
+        "deployment_files/models/ft_away_poisson_safe_v2.joblib",
+        "release/preserved_models/f9/f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca.joblib"
+      ],
+      "classification": "MODEL_BINARY_CANDIDATE",
+      "model_contracts": [
+        {
+          "model_id": "legacy/full_time_away_goals",
+          "model_family": "legacy_10",
+          "sha256": "f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca",
+          "artifact_reference": "original_artifacts/legacy_10/ft_away_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "registered": true,
+      "trusted_for_execution": false,
+      "native_inference_verified": false,
+      "holdout_verified": false,
+      "public_inference_enabled": false,
+      "activation": "DISABLED"
+    }
+  ],
+  "file_instances": [
+    {
+      "repository_relative_path": "deployment_files/models/elo_only_safe_v2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/deployment_files/models/elo_only_safe_v2.joblib",
+      "sha256": "a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306",
+      "size_bytes": 1969,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_elo",
+          "model_family": "legacy_10",
+          "sha256": "a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306",
+          "artifact_reference": "original_artifacts/legacy_10/elo_only_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "deployment_files/models/ft_away_poisson_safe_v2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/deployment_files/models/ft_away_poisson_safe_v2.joblib",
+      "sha256": "f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca",
+      "size_bytes": 3633,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_away_goals",
+          "model_family": "legacy_10",
+          "sha256": "f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca",
+          "artifact_reference": "original_artifacts/legacy_10/ft_away_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "deployment_files/models/ft_home_poisson_safe_v2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/deployment_files/models/ft_home_poisson_safe_v2.joblib",
+      "sha256": "46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3",
+      "size_bytes": 3633,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_home_goals",
+          "model_family": "legacy_10",
+          "sha256": "46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3",
+          "artifact_reference": "original_artifacts/legacy_10/ft_home_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "deployment_files/models/ht_away_poisson_safe_v2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/deployment_files/models/ht_away_poisson_safe_v2.joblib",
+      "sha256": "18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4",
+      "size_bytes": 2849,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/first_half_away_goals",
+          "model_family": "legacy_10",
+          "sha256": "18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4",
+          "artifact_reference": "original_artifacts/legacy_10/ht_away_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "deployment_files/models/ht_home_poisson_safe_v2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/deployment_files/models/ht_home_poisson_safe_v2.joblib",
+      "sha256": "860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b",
+      "size_bytes": 2849,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/first_half_home_goals",
+          "model_family": "legacy_10",
+          "sha256": "860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b",
+          "artifact_reference": "original_artifacts/legacy_10/ht_home_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "deployment_files/models/logistic_regression_safe_v2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/deployment_files/models/logistic_regression_safe_v2.joblib",
+      "sha256": "06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213",
+      "size_bytes": 625402,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_logistic",
+          "model_family": "legacy_10",
+          "sha256": "06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213",
+          "artifact_reference": "original_artifacts/legacy_10/logistic_regression_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "deployment_files/models/random_forest_safe_v2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/deployment_files/models/random_forest_safe_v2.joblib",
+      "sha256": "5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e",
+      "size_bytes": 1918867,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_random_forest",
+          "model_family": "legacy_10",
+          "sha256": "5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e",
+          "artifact_reference": "original_artifacts/legacy_10/random_forest_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "deployment_files/models/sh_away_poisson_safe_v2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/deployment_files/models/sh_away_poisson_safe_v2.joblib",
+      "sha256": "e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5",
+      "size_bytes": 2849,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/second_half_away_goals",
+          "model_family": "legacy_10",
+          "sha256": "e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5",
+          "artifact_reference": "original_artifacts/legacy_10/sh_away_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "deployment_files/models/sh_home_poisson_safe_v2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/deployment_files/models/sh_home_poisson_safe_v2.joblib",
+      "sha256": "d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad",
+      "size_bytes": 2849,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/second_half_home_goals",
+          "model_family": "legacy_10",
+          "sha256": "d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad",
+          "artifact_reference": "original_artifacts/legacy_10/sh_home_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "deployment_files/models/xgboost_safe_v2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/deployment_files/models/xgboost_safe_v2.joblib",
+      "sha256": "c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03",
+      "size_bytes": 2231144,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_xgboost",
+          "model_family": "legacy_10",
+          "sha256": "c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03",
+          "artifact_reference": "original_artifacts/legacy_10/xgboost_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/american_football_result.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/american_football_result.joblib",
+      "sha256": "4c3ac70a0206d9c6943d11b18816f13d13bb194ad477271729351f4a74d0a3ed",
+      "size_bytes": 227513,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/american_football_total.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/american_football_total.joblib",
+      "sha256": "740ef36eefed658266651a48fc7054acede026f5ed909c3a0796ad50fb432f6d",
+      "size_bytes": 5865,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/basketball_result.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/basketball_result.joblib",
+      "sha256": "78457f389943deae37a0739dd1c914f92a185565626cbfb28470377ee938e19d",
+      "size_bytes": 6209,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/basketball_total.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/basketball_total.joblib",
+      "sha256": "bcdb3f73a8c90718e638e56247c53102869af7fb11e56d798dab0b36a48ea0ca",
+      "size_bytes": 5865,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/soccer_result.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/soccer_result.joblib",
+      "sha256": "0bd0d4439a39da85dc32189c80adcd9edd1daf8c0af0527caedd7ea60763bcbf",
+      "size_bytes": 501801,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/soccer_total.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/development_checkpoints/v95_20261022T004815Z/backend_files/models/v92_candidates/soccer_total.joblib",
+      "sha256": "c2bbdaaa6d460b562a867307e9553ff028646a40536a1afaae31b8d7b9a91e29",
+      "size_bytes": 5865,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "global_v3/v2g_staging/models/worldwide_btts.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/global_v3/v2g_staging/models/worldwide_btts.joblib",
+      "sha256": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15",
+      "size_bytes": 240406,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "worldwide/btts",
+          "model_family": "worldwide_3",
+          "sha256": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15",
+          "artifact_reference": "original_artifacts/worldwide_3/worldwide_btts.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "global_v3/v2g_staging/models/worldwide_match_result.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/global_v3/v2g_staging/models/worldwide_match_result.joblib",
+      "sha256": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360",
+      "size_bytes": 605430,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "worldwide/match_result",
+          "model_family": "worldwide_3",
+          "sha256": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360",
+          "artifact_reference": "original_artifacts/worldwide_3/worldwide_match_result.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "global_v3/v2g_staging/models/worldwide_over_2_5.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/global_v3/v2g_staging/models/worldwide_over_2_5.joblib",
+      "sha256": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec",
+      "size_bytes": 240406,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "worldwide/over_2_5",
+          "model_family": "worldwide_3",
+          "sha256": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec",
+          "artifact_reference": "original_artifacts/worldwide_3/worldwide_over_2_5.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/artifacts/BTTS/model.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/artifacts/BTTS/model.joblib",
+      "sha256": "297e3cb1509829982588148edf2667fe01898fd8c87c344d3241295df8474d31",
+      "size_bytes": 2170,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/artifacts/FT_AWAY/model.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/artifacts/FT_AWAY/model.joblib",
+      "sha256": "54a361b2623d8fcef48b491d2875ac226111cedec542a68b2793da1dc7e165df",
+      "size_bytes": 2193,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/artifacts/FT_HOME/model.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/artifacts/FT_HOME/model.joblib",
+      "sha256": "67551e242370d8e370dd8b9a747c1ab0fa89b5467a3dabd0924a08355223275d",
+      "size_bytes": 2192,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/artifacts/HT_AWAY/model.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/artifacts/HT_AWAY/model.joblib",
+      "sha256": "ca62a1594e621655abc266a0ea49c955e3cb1f35b638566b22f75fcf20fd5971",
+      "size_bytes": 2193,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/artifacts/HT_HOME/model.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/artifacts/HT_HOME/model.joblib",
+      "sha256": "e8913f77b2244cfbab17369c64aeb79378d36fed5b92374824457642d7da0e41",
+      "size_bytes": 2191,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/artifacts/OVER_2_5/model.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/artifacts/OVER_2_5/model.joblib",
+      "sha256": "b1a3b4c0e31fd992a9768b50531056de44052aa3c855fe59c0b0dd9cd206695a",
+      "size_bytes": 2175,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/artifacts/SH_AWAY/model.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/artifacts/SH_AWAY/model.joblib",
+      "sha256": "1dbbd5d0936089084a50eec18b29154e126c5ae95c8e1bfff0aae56bf3eafbd8",
+      "size_bytes": 2193,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/artifacts/SH_HOME/model.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/artifacts/SH_HOME/model.joblib",
+      "sha256": "076b2033630e5fbbd33c8d59bd3e2652d49e7a4f7c8d938d30db9f337820473a",
+      "size_bytes": 2193,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/01/01319355727518ee56ef35f067f6850d67816d2bffe62347be526dc80194de9f.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/01/01319355727518ee56ef35f067f6850d67816d2bffe62347be526dc80194de9f.joblib",
+      "sha256": "01319355727518ee56ef35f067f6850d67816d2bffe62347be526dc80194de9f",
+      "size_bytes": 177434,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/06/06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/06/06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213.joblib",
+      "sha256": "06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213",
+      "size_bytes": 625402,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_logistic",
+          "model_family": "legacy_10",
+          "sha256": "06c91add3986324f23c435ec78ff0003f8792e4b36e1eebe89fa9ba39d838213",
+          "artifact_reference": "original_artifacts/legacy_10/logistic_regression_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/0e/0e5d7e49ae05fcbcf4e2fd1f5dff8a7b2b4f207b2fc6f1a500b9ceef0c2dc7c8.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/0e/0e5d7e49ae05fcbcf4e2fd1f5dff8a7b2b4f207b2fc6f1a500b9ceef0c2dc7c8.joblib",
+      "sha256": "0e5d7e49ae05fcbcf4e2fd1f5dff8a7b2b4f207b2fc6f1a500b9ceef0c2dc7c8",
+      "size_bytes": 115505,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/13/139fdbe60a7826ad14f28ccd70a9fc02358f648e2cd5225b7eabdbe64419b631.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/13/139fdbe60a7826ad14f28ccd70a9fc02358f648e2cd5225b7eabdbe64419b631.joblib",
+      "sha256": "139fdbe60a7826ad14f28ccd70a9fc02358f648e2cd5225b7eabdbe64419b631",
+      "size_bytes": 3905,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/17/17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/17/17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec.joblib",
+      "sha256": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec",
+      "size_bytes": 240406,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "worldwide/over_2_5",
+          "model_family": "worldwide_3",
+          "sha256": "17f39b918858e3b19fbace73596007b111946713cd8ab2a39bae625ddeeaceec",
+          "artifact_reference": "original_artifacts/worldwide_3/worldwide_over_2_5.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/18/18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/18/18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4.joblib",
+      "sha256": "18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4",
+      "size_bytes": 2849,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/first_half_away_goals",
+          "model_family": "legacy_10",
+          "sha256": "18a24266328db87f5136d99b7fc72bb623d96a88edb668f69c040ef0b52ff4e4",
+          "artifact_reference": "original_artifacts/legacy_10/ht_away_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/1f/1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/1f/1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82.joblib",
+      "sha256": "1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82",
+      "size_bytes": 1009034,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "v9_original/soccer/lightgbm_model",
+          "model_family": "v9_original_6",
+          "sha256": "1fd453e6f4aac65b591b422c4ea27b43af1c7ae8553bae6a2ba188e878bc3a82",
+          "artifact_reference": "original_artifacts/v9_original_6/soccer/lightgbm_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/21/21a088555e2103d036cf3a693cf7af5c56cd55104d96ff4e5ba6b682817383ef.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/21/21a088555e2103d036cf3a693cf7af5c56cd55104d96ff4e5ba6b682817383ef.joblib",
+      "sha256": "21a088555e2103d036cf3a693cf7af5c56cd55104d96ff4e5ba6b682817383ef",
+      "size_bytes": 2089,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/21/21dfa1695021551cff5272810bbbdf8583d231e97602fc2972d03ac8871b1fd7.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/21/21dfa1695021551cff5272810bbbdf8583d231e97602fc2972d03ac8871b1fd7.joblib",
+      "sha256": "21dfa1695021551cff5272810bbbdf8583d231e97602fc2972d03ac8871b1fd7",
+      "size_bytes": 2090,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/25/2528baccaac95a1fd054bbd23adf1d737d3bfefb61abd156aa0bbd77b0e7fd42.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/25/2528baccaac95a1fd054bbd23adf1d737d3bfefb61abd156aa0bbd77b0e7fd42.joblib",
+      "sha256": "2528baccaac95a1fd054bbd23adf1d737d3bfefb61abd156aa0bbd77b0e7fd42",
+      "size_bytes": 3908,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/2f/2f947073ebf26bb50f2a7d7ec33db91ab8370f54169669c5396d0346f4a9aa54.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/2f/2f947073ebf26bb50f2a7d7ec33db91ab8370f54169669c5396d0346f4a9aa54.joblib",
+      "sha256": "2f947073ebf26bb50f2a7d7ec33db91ab8370f54169669c5396d0346f4a9aa54",
+      "size_bytes": 109812,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/31/3169f0507e52d9b9a8238211db8b11e65fe9c410154e6ee2b49186b9e3377934.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/31/3169f0507e52d9b9a8238211db8b11e65fe9c410154e6ee2b49186b9e3377934.joblib",
+      "sha256": "3169f0507e52d9b9a8238211db8b11e65fe9c410154e6ee2b49186b9e3377934",
+      "size_bytes": 109806,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/31/31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/31/31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb.joblib",
+      "sha256": "31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb",
+      "size_bytes": 81943,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "v9_original/nfl/catboost_model",
+          "model_family": "v9_original_6",
+          "sha256": "31adfe0202fd200233773f43417e381147d4e13c2fa8227a273ee00e8d0716fb",
+          "artifact_reference": "original_artifacts/v9_original_6/nfl/catboost_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/37/3721363a812b8597ac827fb5d676c3485ca0a35a3296de12e5550b77081aea50.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/37/3721363a812b8597ac827fb5d676c3485ca0a35a3296de12e5550b77081aea50.joblib",
+      "sha256": "3721363a812b8597ac827fb5d676c3485ca0a35a3296de12e5550b77081aea50",
+      "size_bytes": 2087,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/3f/3f7214fd678779d9df5f93911f9888201b2307f844c2526a4b4c7a607b73a48f.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/3f/3f7214fd678779d9df5f93911f9888201b2307f844c2526a4b4c7a607b73a48f.joblib",
+      "sha256": "3f7214fd678779d9df5f93911f9888201b2307f844c2526a4b4c7a607b73a48f",
+      "size_bytes": 2094,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/46/46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/46/46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3.joblib",
+      "sha256": "46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3",
+      "size_bytes": 3633,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_home_goals",
+          "model_family": "legacy_10",
+          "sha256": "46d11c9955c6438e5abc1beef07f05cef25afcc601c23645bd9a4eed265e9cb3",
+          "artifact_reference": "original_artifacts/legacy_10/ft_home_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/4d/4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/4d/4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15.joblib",
+      "sha256": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15",
+      "size_bytes": 240406,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "worldwide/btts",
+          "model_family": "worldwide_3",
+          "sha256": "4d340e2056def4b4a1c41b6a407a34850c20696ed3b01dae24563bdc965c1f15",
+          "artifact_reference": "original_artifacts/worldwide_3/worldwide_btts.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/4e/4ecc10bbf874baf1e62045048741a042f406f6e40903d314dac68300056caec6.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/4e/4ecc10bbf874baf1e62045048741a042f406f6e40903d314dac68300056caec6.joblib",
+      "sha256": "4ecc10bbf874baf1e62045048741a042f406f6e40903d314dac68300056caec6",
+      "size_bytes": 2144,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/51/518ffc0e5a1fa71dfb4495c63447aa8109aade3ed502dd70c7795c4de2505f2d.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/51/518ffc0e5a1fa71dfb4495c63447aa8109aade3ed502dd70c7795c4de2505f2d.joblib",
+      "sha256": "518ffc0e5a1fa71dfb4495c63447aa8109aade3ed502dd70c7795c4de2505f2d",
+      "size_bytes": 94444,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/5a/5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/5a/5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e.joblib",
+      "sha256": "5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e",
+      "size_bytes": 1918867,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_random_forest",
+          "model_family": "legacy_10",
+          "sha256": "5aa1dc5d05c561349a95d79a5d68dc9d6325c14098fd2c89c543567e3fb09c9e",
+          "artifact_reference": "original_artifacts/legacy_10/random_forest_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/6b/6b345e7ab62c5848a9b7723af91db06883efefbc009a8f28053c1f7ae479e7ef.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/6b/6b345e7ab62c5848a9b7723af91db06883efefbc009a8f28053c1f7ae479e7ef.joblib",
+      "sha256": "6b345e7ab62c5848a9b7723af91db06883efefbc009a8f28053c1f7ae479e7ef",
+      "size_bytes": 2526803,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/6b/6b6c3c53c813a15ab4b3297d254e33f51c88604a0cc102fc4e3578f570bd9cce.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/6b/6b6c3c53c813a15ab4b3297d254e33f51c88604a0cc102fc4e3578f570bd9cce.joblib",
+      "sha256": "6b6c3c53c813a15ab4b3297d254e33f51c88604a0cc102fc4e3578f570bd9cce",
+      "size_bytes": 75241,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/77/77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/77/77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759.joblib",
+      "sha256": "77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759",
+      "size_bytes": 103726,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "v9_original/nfl/lightgbm_model",
+          "model_family": "v9_original_6",
+          "sha256": "77b1e79aeedbf6143f7cec5454185248faed501ef5aac894e161c2769da03759",
+          "artifact_reference": "original_artifacts/v9_original_6/nfl/lightgbm_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/79/79975de2e31879ddd07cd97a56f1a2054bd2d2d50111c058db2e1b923c420587.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/79/79975de2e31879ddd07cd97a56f1a2054bd2d2d50111c058db2e1b923c420587.joblib",
+      "sha256": "79975de2e31879ddd07cd97a56f1a2054bd2d2d50111c058db2e1b923c420587",
+      "size_bytes": 114528,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/7c/7ca99eeba3546410762da3d1732733c05b24c08e3f390cee5f64f357aff906c7.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/7c/7ca99eeba3546410762da3d1732733c05b24c08e3f390cee5f64f357aff906c7.joblib",
+      "sha256": "7ca99eeba3546410762da3d1732733c05b24c08e3f390cee5f64f357aff906c7",
+      "size_bytes": 1698,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/7d/7d9711148fa98dabcd95be24d063c4d0b5a2f26f76e9ca8e2e29fe08ff18c4fb.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/7d/7d9711148fa98dabcd95be24d063c4d0b5a2f26f76e9ca8e2e29fe08ff18c4fb.joblib",
+      "sha256": "7d9711148fa98dabcd95be24d063c4d0b5a2f26f76e9ca8e2e29fe08ff18c4fb",
+      "size_bytes": 70749,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/80/80722f0fbc86b31e5f2d875bce16e5d4ad4aec761e7ce816cfac2228cf31d1d1.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/80/80722f0fbc86b31e5f2d875bce16e5d4ad4aec761e7ce816cfac2228cf31d1d1.joblib",
+      "sha256": "80722f0fbc86b31e5f2d875bce16e5d4ad4aec761e7ce816cfac2228cf31d1d1",
+      "size_bytes": 189774,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/80/80b662c0fe219e4124bbad032e8bab2084065960c963c2283e5cd088166bac67.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/80/80b662c0fe219e4124bbad032e8bab2084065960c963c2283e5cd088166bac67.joblib",
+      "sha256": "80b662c0fe219e4124bbad032e8bab2084065960c963c2283e5cd088166bac67",
+      "size_bytes": 449214,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/86/860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/86/860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b.joblib",
+      "sha256": "860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b",
+      "size_bytes": 2849,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/first_half_home_goals",
+          "model_family": "legacy_10",
+          "sha256": "860879c5079e4c7a0e62d2d248599a921c7ff4f6065e394c20430d786aff421b",
+          "artifact_reference": "original_artifacts/legacy_10/ht_home_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/94/94e610ca3649d0db70b3accf00541b63a2494d654bbad0464aa42f44f08f6c9e.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/94/94e610ca3649d0db70b3accf00541b63a2494d654bbad0464aa42f44f08f6c9e.joblib",
+      "sha256": "94e610ca3649d0db70b3accf00541b63a2494d654bbad0464aa42f44f08f6c9e",
+      "size_bytes": 114092,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/9b/9bbcf88bf16b15a8454e87306c31f0488cc4b179e1eb4ffb9c354ebdb5fe06ce.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/9b/9bbcf88bf16b15a8454e87306c31f0488cc4b179e1eb4ffb9c354ebdb5fe06ce.joblib",
+      "sha256": "9bbcf88bf16b15a8454e87306c31f0488cc4b179e1eb4ffb9c354ebdb5fe06ce",
+      "size_bytes": 96943,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/a0/a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/a0/a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306.joblib",
+      "sha256": "a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306",
+      "size_bytes": 1969,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_elo",
+          "model_family": "legacy_10",
+          "sha256": "a02ab47b800a4c9c1cc7d57bcce3234624c0b7fcb4b613dd1331716ba83fa306",
+          "artifact_reference": "original_artifacts/legacy_10/elo_only_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/a6/a63cae4ed5608efd7f752a13391bd1c18c511c6e71b3e9821fe01524737e48be.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/a6/a63cae4ed5608efd7f752a13391bd1c18c511c6e71b3e9821fe01524737e48be.joblib",
+      "sha256": "a63cae4ed5608efd7f752a13391bd1c18c511c6e71b3e9821fe01524737e48be",
+      "size_bytes": 1574,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/b9/b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/b9/b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c.joblib",
+      "sha256": "b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c",
+      "size_bytes": 105528,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "v9_original/nfl/xgboost_model",
+          "model_family": "v9_original_6",
+          "sha256": "b9dea3e05ae4a22c60927b4a85855f9492840918029acde06c505b6404ff213c",
+          "artifact_reference": "original_artifacts/v9_original_6/nfl/xgboost_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/c6/c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/c6/c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03.joblib",
+      "sha256": "c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03",
+      "size_bytes": 2231144,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_xgboost",
+          "model_family": "legacy_10",
+          "sha256": "c6dc550c119279cc05be25983fb19e25564f4d2b9698154ad51b94a38d12bf03",
+          "artifact_reference": "original_artifacts/legacy_10/xgboost_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/c7/c731e89ed8215b0d96d2af2f43cc520d8146c67c738b95c096e89a95c4cc6313.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/c7/c731e89ed8215b0d96d2af2f43cc520d8146c67c738b95c096e89a95c4cc6313.joblib",
+      "sha256": "c731e89ed8215b0d96d2af2f43cc520d8146c67c738b95c096e89a95c4cc6313",
+      "size_bytes": 73908,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/c8/c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/c8/c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb.joblib",
+      "sha256": "c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb",
+      "size_bytes": 703763,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "v9_original/soccer/xgboost_model",
+          "model_family": "v9_original_6",
+          "sha256": "c83f2fb9dce03419abab1c4e3c4ac03c1b08e2e0d4173c7e35d734d2e8bdb8bb",
+          "artifact_reference": "original_artifacts/v9_original_6/soccer/xgboost_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/c9/c942df2cb3115258db98bca0d538c847d5842f915dcf7f2cfd82ef32bf67008e.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/c9/c942df2cb3115258db98bca0d538c847d5842f915dcf7f2cfd82ef32bf67008e.joblib",
+      "sha256": "c942df2cb3115258db98bca0d538c847d5842f915dcf7f2cfd82ef32bf67008e",
+      "size_bytes": 125685,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/ca/ca57c98120d951f54b9ad4ad48afd6fd71f5cc2ecadef66099a12f95ac3f8ff2.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/ca/ca57c98120d951f54b9ad4ad48afd6fd71f5cc2ecadef66099a12f95ac3f8ff2.joblib",
+      "sha256": "ca57c98120d951f54b9ad4ad48afd6fd71f5cc2ecadef66099a12f95ac3f8ff2",
+      "size_bytes": 3845,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/cd/cd9b3e15fc22c7ac19ef40432e019ed76b46c792755cff452d5d92c98396df00.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/cd/cd9b3e15fc22c7ac19ef40432e019ed76b46c792755cff452d5d92c98396df00.joblib",
+      "sha256": "cd9b3e15fc22c7ac19ef40432e019ed76b46c792755cff452d5d92c98396df00",
+      "size_bytes": 429318,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/cf/cf85bf8b17a72b9ba7dcb56403dced99ec86ece9bc7734af820a01ecd7025bbe.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/cf/cf85bf8b17a72b9ba7dcb56403dced99ec86ece9bc7734af820a01ecd7025bbe.joblib",
+      "sha256": "cf85bf8b17a72b9ba7dcb56403dced99ec86ece9bc7734af820a01ecd7025bbe",
+      "size_bytes": 115609,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/d2/d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/d2/d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad.joblib",
+      "sha256": "d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad",
+      "size_bytes": 2849,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/second_half_home_goals",
+          "model_family": "legacy_10",
+          "sha256": "d2a87c94cd52ae0a16930b6636abee87223ac1544849462443485e5381293cad",
+          "artifact_reference": "original_artifacts/legacy_10/sh_home_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/d4/d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/d4/d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360.joblib",
+      "sha256": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360",
+      "size_bytes": 605430,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "worldwide/match_result",
+          "model_family": "worldwide_3",
+          "sha256": "d4ccad9a98706953d49810442d1049b7b1f21b5b667109e1e538b9c5edc9f360",
+          "artifact_reference": "original_artifacts/worldwide_3/worldwide_match_result.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/d9/d997dda74d7e05ccc6b9b3e227443d257072a27b42f29582f3fb941c73952375.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/d9/d997dda74d7e05ccc6b9b3e227443d257072a27b42f29582f3fb941c73952375.joblib",
+      "sha256": "d997dda74d7e05ccc6b9b3e227443d257072a27b42f29582f3fb941c73952375",
+      "size_bytes": 2142,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/df/dfbb8fa3718f5418c2f52e5d56d346b7efde1e805b8bba44b3e1f1abe5805c7a.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/df/dfbb8fa3718f5418c2f52e5d56d346b7efde1e805b8bba44b3e1f1abe5805c7a.joblib",
+      "sha256": "dfbb8fa3718f5418c2f52e5d56d346b7efde1e805b8bba44b3e1f1abe5805c7a",
+      "size_bytes": 2143,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/e1/e1bd58338b5f39bbe7aaab9e24a222c9509811b90a0f840e5453004cc6323709.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/e1/e1bd58338b5f39bbe7aaab9e24a222c9509811b90a0f840e5453004cc6323709.joblib",
+      "sha256": "e1bd58338b5f39bbe7aaab9e24a222c9509811b90a0f840e5453004cc6323709",
+      "size_bytes": 2145,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/e2/e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/e2/e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5.joblib",
+      "sha256": "e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5",
+      "size_bytes": 2849,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/second_half_away_goals",
+          "model_family": "legacy_10",
+          "sha256": "e21e65833be93f52f0127433cf7ab17dbdb57c834babbfcb81e988726914c8c5",
+          "artifact_reference": "original_artifacts/legacy_10/sh_away_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/e5/e5c1fed4fff09ecb6d53c4c899dde08e53eb43773e5a5bfa6d8c342c96e1debc.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/e5/e5c1fed4fff09ecb6d53c4c899dde08e53eb43773e5a5bfa6d8c342c96e1debc.joblib",
+      "sha256": "e5c1fed4fff09ecb6d53c4c899dde08e53eb43773e5a5bfa6d8c342c96e1debc",
+      "size_bytes": 2093,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/e7/e7fffaef255910f0635bebc62119c42b11c6f56ffcb855d15a1f2a1f81d05e5c.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/e7/e7fffaef255910f0635bebc62119c42b11c6f56ffcb855d15a1f2a1f81d05e5c.joblib",
+      "sha256": "e7fffaef255910f0635bebc62119c42b11c6f56ffcb855d15a1f2a1f81d05e5c",
+      "size_bytes": 4757,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/e9/e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/e9/e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90.joblib",
+      "sha256": "e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90",
+      "size_bytes": 1917292,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "v9_original/soccer/catboost_model",
+          "model_family": "v9_original_6",
+          "sha256": "e9d6a20bce19d3013f2e6a50c48ecca14f4639a992404492e0c61215ccb0eb90",
+          "artifact_reference": "original_artifacts/v9_original_6/soccer/catboost_model.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/ea/eadf5a3c524567ebc9033b72e5f280fb606cda6ff5e85c30bd7b46f657d48971.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/ea/eadf5a3c524567ebc9033b72e5f280fb606cda6ff5e85c30bd7b46f657d48971.joblib",
+      "sha256": "eadf5a3c524567ebc9033b72e5f280fb606cda6ff5e85c30bd7b46f657d48971",
+      "size_bytes": 3785,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "release/preserved_models/f9/f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/release/preserved_models/f9/f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca.joblib",
+      "sha256": "f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca",
+      "size_bytes": 3633,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [
+        {
+          "model_id": "legacy/full_time_away_goals",
+          "model_family": "legacy_10",
+          "sha256": "f9240500824ada393777c9bccaa3b82b17d6b9a04ee83da969fda31826a6f0ca",
+          "artifact_reference": "original_artifacts/legacy_10/ft_away_poisson_safe_v2.joblib",
+          "source": "/content/drive/MyDrive/GoogleSaada_V9/releases/contract_inheritance/20261026T053001Z/MODEL_CONTRACT_REGISTRY.json"
+        }
+      ],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "v95_service/models/v92_candidates/american_football_result.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/v95_service/models/v92_candidates/american_football_result.joblib",
+      "sha256": "4c3ac70a0206d9c6943d11b18816f13d13bb194ad477271729351f4a74d0a3ed",
+      "size_bytes": 227513,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "v95_service/models/v92_candidates/american_football_total.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/v95_service/models/v92_candidates/american_football_total.joblib",
+      "sha256": "740ef36eefed658266651a48fc7054acede026f5ed909c3a0796ad50fb432f6d",
+      "size_bytes": 5865,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "v95_service/models/v92_candidates/basketball_result.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/v95_service/models/v92_candidates/basketball_result.joblib",
+      "sha256": "78457f389943deae37a0739dd1c914f92a185565626cbfb28470377ee938e19d",
+      "size_bytes": 6209,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "v95_service/models/v92_candidates/basketball_total.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/v95_service/models/v92_candidates/basketball_total.joblib",
+      "sha256": "bcdb3f73a8c90718e638e56247c53102869af7fb11e56d798dab0b36a48ea0ca",
+      "size_bytes": 5865,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "v95_service/models/v92_candidates/soccer_result.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/v95_service/models/v92_candidates/soccer_result.joblib",
+      "sha256": "0bd0d4439a39da85dc32189c80adcd9edd1daf8c0af0527caedd7ea60763bcbf",
+      "size_bytes": 501801,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    },
+    {
+      "repository_relative_path": "v95_service/models/v92_candidates/soccer_total.joblib",
+      "source_path": "/content/drive/MyDrive/GoogleSaada_V9/HF_Model_Recovery/865b3e1737d6/repository_artifacts/v95_service/models/v92_candidates/soccer_total.joblib",
+      "sha256": "c2bbdaaa6d460b562a867307e9553ff028646a40536a1afaae31b8d7b9a91e29",
+      "size_bytes": 5865,
+      "file_kind": "MODEL_BINARY_CANDIDATE",
+      "matched_contracts": [],
+      "integrity": "SHA256_COMPUTED",
+      "executable": false,
+      "activation": "DISABLED",
+      "production_approved": false
+    }
+  ],
+  "execution_policy": {
+    "default": "DENY",
+    "all_models_disabled": true,
+    "remote_model_load": false,
+    "untrusted_pickle_execution": false,
+    "public_prediction_endpoint_enabled": false,
+    "promotion_requires": [
+      "source_provenance",
+      "native_feature_contract",
+      "runtime_dependency_isolation",
+      "independent_inference_test",
+      "independent_holdout_evaluation",
+      "monitoring_and_rollback",
+      "explicit_activation_approval"
+    ]
+  },
+  "live_deployment_modified": false,
+  "model_weights_modified": false,
+  "training_performed": false
+}

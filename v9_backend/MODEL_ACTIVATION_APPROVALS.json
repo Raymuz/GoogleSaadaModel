@@ -1,0 +1,31 @@
+{
+  "production_approved": true,
+  "registry_sha256": "76fb54a5e0f41e4360f7c66b345604324758e51ef59b6670b2a884ace7f02dee",
+  "approved_model_ids": [
+    "legacy/first_half_away_goals",
+    "legacy/first_half_home_goals",
+    "legacy/full_time_away_goals",
+    "legacy/full_time_elo",
+    "legacy/full_time_home_goals",
+    "legacy/full_time_logistic",
+    "legacy/full_time_random_forest",
+    "legacy/full_time_xgboost",
+    "legacy/second_half_away_goals",
+    "legacy/second_half_home_goals"
+  ],
+  "approver": "OWNER_AUTHORIZED_RELEASE",
+  "approved_utc": "2026-10-28T06:09:49.426401+00:00",
+  "release_id": "20261028T060949426401Z",
+  "model_inference_evidence": "checkpoints/stage6i_phase2_backend_release/20261028T055356411169Z/native_prediction_gate/20261028T055854818827Z/LEGACY_10_COMPATIBILITY_RESULT.json",
+  "disabled_model_ids": [
+    "v9_original/nfl/catboost_model",
+    "v9_original/nfl/lightgbm_model",
+    "v9_original/nfl/xgboost_model",
+    "v9_original/soccer/catboost_model",
+    "v9_original/soccer/lightgbm_model",
+    "v9_original/soccer/xgboost_model",
+    "worldwide/btts",
+    "worldwide/match_result",
+    "worldwide/over_2_5"
+  ]
+}
