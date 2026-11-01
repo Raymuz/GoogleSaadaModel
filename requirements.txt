@@ -1,0 +1,24 @@
+# GoogleSaada Soccer Predictor
+# Generated from existing project imports in Google Colab
+# Verify against the Hugging Face Docker build.
+# Python target: 3.13
+
+fastapi==0.141.1
+google-auth==2.49.0
+gradio==6.29.0
+joblib==1.6.0
+numpy==2.3.5
+pandas==3.0.6
+scikit-learn==1.6.1
+scipy==1.16.3
+pyarrow==23.0.1
+xgboost==3.4.1
+dill==0.4.1
+uvicorn
+httpx
+sqlalchemy>=2,<3
+psycopg[binary]>=3.2,<4
+argon2-cffi>=23,<27
+authlib>=1.3,<2
+itsdangerous>=2,<3
+python-multipart>=0.0.9

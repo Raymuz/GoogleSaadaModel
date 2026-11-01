@@ -1,0 +1,1 @@
+GoogleSaada V8 one-port staging: / (Gradio), /health (FastAPI), /api/v1/admin/status (protected). No WordPress. REST predictions disabled. Do not promote without native Judge, OOS calibration, real GPT/credits/hosted acceptance.

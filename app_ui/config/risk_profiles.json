@@ -1,0 +1,37 @@
+{
+  "version": "soccer_risk_profiles_v1",
+  "production_validated": false,
+  "thresholds_are_research_preferences_only": true,
+  "description": "Probability thresholds filter model-generated outputs only after identity, market, feature and policy checks pass.",
+  "profiles": {
+    "Low": {
+      "min_probability_research": 0.8,
+      "selection": "Conservative; prioritize stronger supported probabilities and better-validated markets",
+      "diversify": true
+    },
+    "Medium": {
+      "min_probability_research": 0.7,
+      "selection": "Moderate; allow additional eligible selections",
+      "diversify": true
+    },
+    "High": {
+      "min_probability_research": 0.6,
+      "selection": "Aggressive; allow more volatile eligible selections without bypassing safety checks",
+      "diversify": false
+    },
+    "Balanced": {
+      "min_probability_research": 0.75,
+      "selection": "Balance probability and diversification where possible",
+      "diversify": true
+    }
+  },
+  "never_override": [
+    "identity_approval",
+    "market_eligibility",
+    "feature_readiness",
+    "research_policy",
+    "production_authorization"
+  ],
+  "exact_score_enabled": false,
+  "odds_or_expected_value_inferred": false
+}
